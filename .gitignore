@@ -39,3 +39,13 @@ luac.out
 *.x86_64
 *.hex
 
+/export
+/.vs
+/SMNBK.lua
+/SMN nu.lua
+/Rastamon_Rdm_Gear.lua
+/Instructions.txt
+/SCH_Gearsets.lua
+/RNG - Copy.lua
+/WAR - old.lua
+/WAR - Orph.lua

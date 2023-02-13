@@ -1,0 +1,402 @@
+-- function file_unload()
+	-- send_command('unbind f9')
+	-- send_command('unbind f10')
+-- end
+
+nukes = {}
+nukes.t1 = {['Earth']="Stone",		['Water']="Water",		['Air']="Aero",		['Fire']="Fire",	['Ice']="Blizzard",		['Thunder']="Thunder",		['Light']="Thunder",	['Dark']="Blizzard"}
+nukes.t2 = {['Earth']="Stone II",	['Water']="Water II",	['Air']="Aero II",	['Fire']="Fire II",	['Ice']="Blizzard II",	['Thunder']="Thunder II",	['Light']="Thunder II",	['Dark']="Blizzard II"}
+nukes.t3 = {['Earth']="Stone III",	['Water']="Water III",	['Air']="Aero III",	['Fire']="Fire III",['Ice']="Blizzard III",	['Thunder']="Thunder III",	['Light']="Thunder III",['Dark']="Blizzard III"}
+nukes.t4 = {['Earth']="Stone IV",	['Water']="Water IV",	['Air']="Aero IV",	['Fire']="Fire IV",	['Ice']="Blizzard IV",	['Thunder']="Thunder IV",	['Light']="Thunder IV",	['Dark']="Blizzard IV"}
+nukes.t5 = {['Earth']="Stone V",	['Water']="Water V",	['Air']="Aero V",	['Fire']="Fire V",	['Ice']="Blizzard V",	['Thunder']="Thunder V",	['Light']="Thunder V",	['Dark']="Blizzard V"}
+
+NukeIndex = 1
+NukeArray = {'Water','Ice','Air','Thunder','Earth','Fire'}
+
+MeleeMode = false
+cidleset = 'Load Temp'
+MBMode = false
+SkillMode = false
+
+IdleIndex = 1
+IdleArray = {'Auto','DT'}
+idleMode = IdleArray[IdleIndex]
+
+function get_sets()
+	send_command('input /macro book 1;wait .1;input /macro set 1')
+	
+	---------------
+	-- Idle Sets --
+	---------------
+
+    sets.Idle = {
+		main="Ruler",sub="Genbu's Shield",range="Aureole",
+		head="Duelist's Chapeau",body="Dalmatica",hands="Morrigan's Cuffs",legs="Crimson Cuisses",feet="Duelist's Boots",
+		neck="Orochi Nodowa",waist="Salire Belt",back="Cheviot Cape",
+		ear1="Novia Earring",ear2="Loquacious Earring",ring1="Vivian Ring",ring2="Tamas Ring"
+	}
+
+	sets.Idle.DT = set_combine(sets.Idle,{})
+	
+    sets.Idle.Resting = set_combine(sets.Idle,{
+		main="Chatoyant Staff",sub="Thunder Grip",ammo="Hedgehog Bomb",
+		body="Warlock's Tabard +1",feet="Avocat Pigaches",
+		neck="Grandiose Chain",waist="Hierarch Belt",back="Astute Cape",
+		ear1="Antivenom Earring"
+	})
+
+	sets.Idle.MVMT = {feet="Crimson Cuisses"}
+	
+	sets.Melee = {
+		main="Enhancing Sword",sub="Genbu's Shield",ammo="Goblin Cracker",
+		head="Walahra Turban",body="Goliard Saio",hands="Dusk Gloves +1",legs="Morrigan's Slops",feet="Dusk Ledelsens +1",
+		neck="Ancient Torque",waist="Ninurta's Sash",back="Cuchulain's Mantle",
+		ear1="Suppanomimi",ear2="Brutal Earring",ring1="Toreador's Ring",ring2="Mars's Ring"
+	}
+
+	-------------
+	-- Precast --
+	-------------
+	
+	sets.Precast = {
+		ammo="Hedgehog Bomb",
+		head="Warlock's Chapeau",body="Duelist's Tabard",hands="Morrigan's Cuffs",legs="Neit's Slops",feet="Duelist's Boots",
+		neck="Grandiose Chain",waist="Hierarch Belt",back="Astute Cape",
+		ear1="Antivenom Earring",ear2="Loquacious Earring",ring1="Vivian Ring",ring2="Tamas Ring"
+	}
+
+	sets.Precast.Cure = set_combine(sets.Precast,{})
+	sets.Precast.Ailment = set_combine(sets.Precast,{})
+
+	------------------------
+	-- Ability Precasting --
+	------------------------
+	
+	sets.JA = {}
+    sets.JA["Benediction"] = {body="Piety Briault"}
+
+	-------------
+	-- Midcast --
+	-------------
+
+    sets.Midcast = {}
+
+	sets.Midcast.Cure = {
+		main="Chatoyant Staff",sub="Thunder Grip",ammo="Hedgehog Bomb",
+		head="Goliard Chapeau",body="Duelist's Tabard",hands="Nashira Gages",legs="Warlock's Tights",feet="Shadow Clogs",
+		neck="Fylgja Torque",waist="Salire Belt",back="Dew Silk Cape",
+		ear1="Novia Earring",ear2="Loquacious Earring",ring1="Vivian Ring",ring2="Tamas Ring"
+	}
+
+	sets.Midcast.Enhancing = {
+		ammo="Hedgehog Bomb",
+		head="Walahra Turban",body="Goliard Saio",hands="Duelist's Gloves +1",legs="Warlock's Tights",feet="Dusk Ledelsens +1",
+		neck="Enhancing Torque",waist="Ninurta's Sash",back="Astute Cape",
+		ear1="Novia Earring",ear2="Loquacious Earring",ring1="Vivian Ring",ring2="Tamas Ring"
+	}
+
+	sets.Midcast.Refresh = set_combine(sets.Midcast.Enhancing,{})
+
+	sets.Midcast["Stoneskin"] = set_combine(sets.Midcast.Enhancing,{})
+
+	sets.Midcast.MAcc = {
+		main="Chatoyant Staff",sub="Thunder Grip",range="Aureole",
+		head="Duelist's Chapeau",body="Warlock's Tabard +1",hands="Morrigan's Cuffs",legs="Morrigan's Slops",feet="Avocat Pigaches",
+		neck="Enfeebling Torque",waist="Ninurta's Sash",back="Astute Cape",
+		ear1="Novia Earring",ear2="Loquacious Earring",ring1="Vivian Ring",ring2="Tamas Ring"
+	}
+
+	sets.Midcast.Enfeebling = set_combine(sets.Midcast.MAcc,{
+	})
+
+	sets.Midcast.Dark = set_combine(sets.Midcast.MAcc,{neck="Dark Torque"})
+
+	sets.Midcast.MAB = {
+		main="Chatoyant Staff",sub="Thunder Grip",ammo="Phtm. Tathlum",
+		head="Warlock's Chapeau",body="Morrigan's Robe",hands="Morrigan's Cuffs",legs="Morrigan's Slops",feet="Yigit Crackows",
+		neck="Uggalepih Pendant",waist="Salire Belt",back="Hecate's Cape",
+		ear1="Moldavite Earring",ear2="Novio Earring",ring1="Vivian Ring",ring2="Tamas Ring"
+	}
+
+	sets.Midcast.MB = set_combine(sets.Midcast.MAB,{
+	})
+
+	----------------------
+	-- WeaponSkill Sets --
+	----------------------
+
+	sets.WS = {
+		ammo="Goblin Cracker",
+		head="Gnadbhod's Helm",body="Morrigan's Robe",hands="Morrigan's Cuffs",legs="Morrigan's Slops",feet="Dusk Ledelsens +1",
+		neck="Fortitude Torque",waist="Warwolf Belt",back="Cerb. Mantle +1",
+		ear1="Suppanomimi",ear2="Brutal Earring",ring1="Strigoi Ring",ring2="Mars's Ring"
+	}
+
+	sets.WS["Savage Blade"] = set_combine(sets.WS,{})
+	sets.WS["Black Halo"] = set_combine(sets.WS,{})
+
+	---------------
+	-- Aftercast --
+	---------------
+
+    sets.aftercast = {}
+end
+
+--------------------------------------------------------------------------------------------------------------
+-- HUD STUFF
+--------------------------------------------------------------------------------------------------------------
+
+Colors = {
+    ["Fire"] = "\\cs(255,0,0)",
+    ["Water"] = "\\cs(0,128,255)",
+    ["Air"] = "\\cs(0,255,0)",
+    ["Earth"] = "\\cs(255,150,0)",
+    ["Ice"] = "\\cs(0,204,204)",
+    ["Thunder"] = "\\cs(102,0,204)"
+}
+
+function setup_hud()
+    rdm_property = {}
+    rdm_info = {}
+    rdm_info.box={
+        pos={x=2740,y=1324},
+        text={font='Segoe UI Symbol', size=10, Fonts={'sans-serif'},},
+        bg={alpha=200,red=0,green=0,blue=0},
+        flags={draggable=true},
+        padding=4
+    }
+    window = texts.new(rdm_info.box)
+    initialize(window, rdm_info.box)
+    window:show()
+    updatedisplay()
+end
+
+function initialize(text, settings)
+    local properties = L{}
+    properties:append('${modestates}')
+    text:clear()
+    text:append(properties:concat('\n'))
+end
+
+function concat_strings(s)
+    local t = { }
+    for k,v in ipairs(s) do
+        t[#t+1] = tostring(v)
+    end
+    return table.concat(t,"\n")
+end
+
+local res = require('resources')
+update_delay=0
+
+function updatedisplay()
+    modestates_table = {
+		'IdleMode: \\cs(150,150,255)'..IdleArray[IdleIndex]..'\\cr',
+		'   CurrentSet: \\cs(150,150,255)'..tostring(cidleset)..'\\cr',
+		'MBMode: \\cs(150,150,255)'..tostring(MBMode)..'\\cr',
+		'MeleeMode: \\cs(150,150,255)'..tostring(MeleeMode)..'\\cr',
+		'Element: '..Colors[NukeArray[NukeIndex]]..NukeArray[NukeIndex]..'\\cr'
+    }
+    rdm_property.modestates = concat_strings(modestates_table)
+
+    local info = {}
+    info.modestates = rdm_property.modestates
+
+    window:update(info)
+end
+
+function spairs(t, order)
+    -- collect the keys
+    local keys = {}
+    for k in pairs(t) do keys[#keys+1] = k end
+
+    -- if order function given, sort by it by passing the table and keys a, b,
+    -- otherwise just sort the keys 
+    if order then
+        table.sort(keys, function(a,b) return order(t, a, b) end)
+    else
+        table.sort(keys)
+    end
+
+    -- return the iterator function
+    local i = 0
+    return function()
+        i = i + 1
+        if keys[i] then
+            return keys[i], t[keys[i]]
+        end
+    end
+end
+
+setup_hud()
+
+--------------------------------------------------------------------------------------------------------------
+-- LOGIC STUFF
+--------------------------------------------------------------------------------------------------------------
+
+function buff_change(name,gain,buff_details)
+    updatedisplay()
+	aftercast()
+end
+
+function skillup()
+end
+
+function precast(spell,action)
+	if (spell.type:endswith('Magic') or spell.type == "Ninjutsu") and buffactive['Silence'] then
+        cancel_spell()
+        send_command('input /item "Echo Drops" <me>')
+        add_to_chat(123, '****** ['..spell.name..' CANCELED - Using Echo Drops] ******')
+    end
+
+	if spell.type:contains('Magic') then
+		if spell.name == 'Stoneskin' then
+            windower.ffxi.cancel_buff(37)--[[Cancels stoneskin, not delayed incase you get a Quick Cast]]
+            equip(sets.Precast)
+        elseif spell.name == 'Sneak' then
+            windower.ffxi.cancel_buff(71)--[[Cancels Sneak]]
+            equip(sets.Precast)
+        elseif spell.name:contains('Cure') or spell.name:contains('Cura') then
+            equip(sets.Precast.Cure)
+		else
+            equip(sets.Precast)
+        end
+    elseif spell.type == "WeaponSkill" then
+		equipSet = sets.WS
+        if equipSet[spell.name] then
+            equipSet = equipSet[spell.name]
+			add_to_chat(122,spell.name .. ' Set')
+        end
+        equip(equipSet)
+	end
+end
+ 
+function midcast(spell,action)
+	if spell.name:contains('Cure') or spell.name:contains('Cura') then
+		equip(sets.Midcast.Cure)
+	elseif spell.skill == "Enfeebling Magic" then
+		equip(sets.Midcast.Enfeebling)
+	elseif spell.skill == "Enhancing Magic" then
+		if spell.name:contains('Refresh') then
+			equip(sets.Midcast.Refresh)
+		else
+			equip(sets.Midcast.Enhancing)
+		end
+    elseif spell.type == 'BlackMagic' then
+		if spell.skill == "Elemental Magic" then
+			if MBMode then
+				equip(sets.Midcast.MB)
+			else
+				equip(sets.Midcast.MAB)
+			end
+		elseif spell.skill == "Dark Magic" then
+			if spell.name == 'Stun' then
+				equip(sets.Midcast.MAcc)
+			else
+				equip(sets.Midcast.Dark)
+			end
+		end
+	elseif sets.Midcast[spell.english] then
+        equip(sets.Midcast[spell.english])
+    end
+	
+    if spell.element == world.weather_element and spell.element == 'Fire' then
+        equip({waist="Karin Obi"})
+    elseif spell.element == world.weather_element and spell.element == 'Ice' then
+        equip({waist="Hyorin Obi"})
+    elseif spell.element == world.weather_element and spell.element == 'Lightning' then
+        equip({waist="Rairin Obi"})
+    elseif spell.element == world.weather_element and spell.element == 'Light' then
+        equip({waist="Korin Obi"})
+    elseif spell.element == world.weather_element and spell.element == 'Dark' then
+        equip({waist="Anrin Obi"})
+    end
+end
+ 
+function aftercast(spell,action)
+    if midaction() then
+        return
+    end
+
+	if player.status == 'Engaged' then
+        equip(sets.Melee)
+		cidleset = 'Melee'
+	else
+		if IdleArray[IdleIndex] == 'Auto' then
+			if player.mpp < 85 then
+				equip(sets.Idle)
+				cidleset = 'Idle, Refresh'
+			elseif player.hpp < 60 then
+				equip(sets.Idle.DT)
+				cidleset = 'Idle, DT'
+			else
+				equip(sets.Idle)
+				cidleset = 'Idle, Refresh'
+			end
+		elseif IdleArray[IdleIndex] == 'DT' then
+			equip(sets.Idle.DT)
+			cidleset = 'Idle, DT'
+		end
+	end
+
+    updatedisplay()
+end
+ 
+function status_change(new,old)
+    if new == 'Engaged' then
+        aftercast()
+    elseif new == 'Resting' then
+        equip(sets.Idle.Resting)
+    else
+        aftercast()
+    end
+end
+
+function self_command(command)
+	commandArgs = (command:split(' '))
+	if commandArgs[1]:lower() == 'melee' then
+		if MeleeMode then
+			MeleeMode = false
+			enable('main','sub','ranged')
+			windower.add_to_chat(8,'----- Weapons Unlocked, WILL LOSE TP -----')
+			aftercast()
+		else
+			MeleeMode = true
+			disable('main','sub','ranged')
+			windower.add_to_chat(8,'----- Weapons Locked, WILL NOT LOSE TP -----')
+			aftercast()
+		end
+	elseif commandArgs[1]:lower() == 'mb' then
+		if MBMode then
+			MBMode = false
+            windower.add_to_chat(8,'----- Magic Burst Mode Disabled -----')
+		else
+			MBMode = true
+            windower.add_to_chat(8,'----- Magic Burst Mode Enabled -----')
+		end
+	elseif commandArgs[1]:lower() == 'skillup' then
+		if SkillMode then
+			SkillMode = false
+            windower.add_to_chat(8,'----- Skill-Up Mode Disabled -----')
+		else
+			SkillMode = true
+            windower.add_to_chat(8,'----- Skill-Up Mode Enabled -----')
+			skillup()
+		end
+	elseif commandArgs[1]:lower() == 'idle' then
+		IdleIndex = (IdleIndex % #IdleArray) + 1
+    elseif commandArgs[1]:lower() == 'ele' then
+		if commandArgs[2]:lower() == 'down' then
+			NukeIndex = (NukeIndex % #NukeArray) - 1
+		else
+			NukeIndex = (NukeIndex % #NukeArray) + 1
+		end
+    elseif commandArgs[1]:lower() == 'nuke' then
+		local tier = commandArgs[2]:lower()
+		local element = NukeArray[NukeIndex]
+		send_command('@input /ma "'..nukes[tier][element]..'" <t>')
+    elseif command == 'update' then
+		aftercast()
+    end
+	updatedisplay()
+end
