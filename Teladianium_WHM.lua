@@ -30,6 +30,13 @@ function get_sets()
 	})
 
 	sets.Idle.MVMT = {feet="Herald's Gaiters"}
+	
+	sets.TP = {
+		main="Gada",sub="Ammurapi Shield",ammo="Homiliary",
+		head="Ayanmo Zucchetto +2",body="Ayanmo Corazza +2",hands="Ebers Mitts +2",legs="Ebers Pantaloons +2",feet="Ebers Duckbills +2",
+		ear1="Hearty Earring",ear2="Ebers Earring",ring1="K'ayres Ring",ring2="Gelatinous Ring +1",
+		neck="Sanctity Necklace",waist="Embla Sash",back={name="Alaunus's Cape",augments={'"Fast Cast"+10'}}
+	}
 
 	-------------
 	-- Precast --
@@ -273,7 +280,7 @@ function aftercast(spell,action)
     end
 
 	if player.status == 'Engaged' then
-		equip(sets.Precast)
+		equip(sets.TP)
 	else
 		if IdleArray[IdleIndex] == 'Auto' then
 			if player.mpp < 50 then

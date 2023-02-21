@@ -22,7 +22,7 @@ function get_sets()
 	})
 
 	sets.Idle.AOE = set_combine(sets.Idle,{
-		body="Erilaz surcoat +1",
+		body="Erilaz surcoat +2",
 		neck="Futhark torque +1",waist="Flume Belt"
 	})
 
@@ -57,7 +57,7 @@ function get_sets()
 	
 	sets.Precast = {
 		ammo="Sapience Orb",
-		head="Runeist Bandeau +2",body="Agwu's Robe",hands="Leyline Gloves",legs="Ayanmo Cosciales +2",feet="Carmine Greaves +1",
+		head="Runeist Bandeau +2",body="Erilaz surcoat +2",hands="Leyline Gloves",legs="Ayanmo Cosciales +2",feet="Carmine Greaves +1",
 		ear1="Odnowa Earring +1",ear2="Etiolation Earring",ring1="Kishar Ring",ring2="Weatherspoon Ring",
 		neck="Voltsurge Torque",waist="Audumbla sash",back={name="Ogma's Cape",augments={'HP+60','"Fast Cast"+10','Phys. dmg. taken-10%'}}
 	}

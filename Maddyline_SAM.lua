@@ -32,7 +32,7 @@ function get_sets()
 	sets.TP = {
 		ammo="Coiste Bodhar",
 		head="Flamma Zucchetto +2",body="Kasuga Domaru +2",hands="Tatenashi Gote +1",legs="Kasuga Haidate +2",feet="Tatenashi Sune-Ate +1",
-		ear1="Dedition earring",ear2="Cessance earring",ring1="Flamma Ring",ring2="Niqmaddu Ring",
+		ear1="Cessance earring",ear2="Kasuga earring",ring1="Flamma Ring",ring2="Niqmaddu Ring",
 		neck="Samurai's Nodowa +1",waist="Ioskeha Belt +1",back="Takaha Mantle",
 	}
 

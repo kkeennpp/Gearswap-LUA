@@ -116,7 +116,7 @@ function get_sets()
 	}
 
 	sets.Midcast.MAB = {
-		main="Solstice",sub="Ammurapi Shield",ammo="Dunna",
+		main="Daybreak",sub="Ammurapi Shield",ammo="Dunna",
 		head="Bagua galero +3",body="Bagua Tunic +3",hands="Bagua Mitaines +3",legs="Azimuth Tights +2",feet="Azimuth Gaiters +2",
 		ear1="Malignance Earring",ear2="Friomisi Earring",ring1="Jhakri Ring",ring2="Shiva Ring +1",
 		neck="Sanctity Necklace",waist="Refoccilation Stone",back={name="Nantosuelta's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-2%'}}

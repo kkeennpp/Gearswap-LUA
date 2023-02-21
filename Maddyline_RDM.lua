@@ -38,7 +38,7 @@ function get_sets()
 
     sets.Idle = {
 		main="Daybreak",sub="Sacro Bulwark",ammo="Homiliary",
-		head="Vitiation Chapeau +3",body="Jhakri Robe +2",hands="Chironic Gloves",legs="Lengo Pants",feet="Nyame Sollerets",
+		head="Vitiation Chapeau +3",body="Lethargy Sayon +2",hands="Chironic Gloves",legs="Lengo Pants",feet="Nyame Sollerets",
 		ear1="Infused earring",ear2="Etiolation Earring",ring1={name="Stikini Ring +1",bag="wardrobe 3"},ring2="Gelatinous Ring +1",
 		neck="Sanctity Necklace",waist="Fucho-no-Obi",back={name="Sucellos's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Damage taken-5%'}}
 	}
@@ -153,7 +153,7 @@ function get_sets()
 
 	sets.Midcast.MAcc = {
 		main="Daybreak",sub="Ammurapi Shield",ammo="Regal Gem",
-		head="Vitiation Chapeau +3",body="Atrophy Tabard +2",hands="Lethargy Gantherots +2",legs="Chironic Hose",feet="Vitiation Boots +3",
+		head="Vitiation Chapeau +3",body="Lethargy Sayon +2",hands="Lethargy Gantherots +2",legs="Chironic Hose",feet="Vitiation Boots +3",
 		ear1="Snotra Earring",ear2="Regal Earring",ring1={name="Stikini Ring +1",bag="wardrobe 3"},ring2="Kishar Ring",
 		neck="Duelist's torque +1",waist="Rumination Sash",back={name="Sucellos's Cape",augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%'}}
 	}

@@ -11,7 +11,7 @@ function get_sets()
 	sets.Idle = {
 		main="Caballarius Sword",sub="Priwen",ammo="Staunch Tathlum +1",
 		head="Sakpata's Helm",body="Sakpata's Plate",hands="Sakpata's Gauntlets",legs="Sakpata's Cuisses",feet="Sakpata's Leggings",
-		ear1="Etiolation Earring",ear2="Odnowa Earring +1",ring1="Moonlight Ring",ring2="Vengeful Ring",
+		ear1="Etiolation Earring",ear2="Odnowa Earring +1",ring1="Moonlight Ring",ring2="Purity Ring",
 		neck="Warder's Charm +1",waist="Asklepian Belt",back={name="Rudianos's Mantle",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Fast Cast"+10','Damage taken-5%'}}
 	}
 
@@ -24,9 +24,9 @@ function get_sets()
 
 	sets.Idle.Block = set_combine(sets.Idle,{
 		main="Nixxer",sub="Priwen",
-		body="Sacro Breastplate",head="Odyssean Helm",augments={'INT+2','AGI+4','Chance of successful block +10','Accuracy+15 Attack+15','Mag. Acc.+7 "Mag.Atk.Bns."+7'}},legs="Volte Brayettes",feet="Souveran Schuhs +1",
-		ear1="Thureous Earring",ring2="Paguroidea Ring",
-		neck="Loricate Torque +1",waist="Flume Belt +1",back={name="Rudianos's Mantle",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5'}}
+		body="Sacro Breastplate",head={name="Odyssean Helm",augments={'INT+2','AGI+4','Chance of successful block +10','Accuracy+15 Attack+15','Mag. Acc.+7 "Mag.Atk.Bns."+7'}},legs="Chevalier's Cuisses +2",feet="Souveran Schuhs +1",
+		ear1="Thureous Earring",ear2="Chevalier's Earring",ring2="Paguroidea Ring",
+		neck="Creed Collar",waist="Flume Belt +1",back={name="Rudianos's Mantle",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5'}}
 	})
 
 	sets.Idle.MEva = set_combine(sets.Idle,{main="Malignance Sword",sub="Aegis"})
@@ -66,7 +66,7 @@ function get_sets()
 	
 	sets.Precast = {
 		main="Sakpata's Sword",sub="Svalinn",ammo="Sapience Orb",
-		head="Carmine Mask +1",body="Reverence Surcoat +3",hands="Leyline Gloves",legs="Nyame Flanchard",feet="Carmine Greaves +1",
+		head="Carmine Mask +1",body="Reverence Surcoat +3",hands="Leyline Gloves",legs="Chevalier's Cuisses +2",feet="Chevalier's Sabatons +2",
 		ear1="Loquacious Earring",ear2="Odnowa Earring +1",ring1="Kishar Ring",ring2="Weatherspoon Ring",
 		neck="Voltsurge Torque",waist="Flume Belt +1",back={name="Rudianos's Mantle",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Fast Cast"+10','Damage taken-5%'}}
 	}
@@ -91,7 +91,7 @@ function get_sets()
 
 	sets.Midcast.phx = {
 		main="Sakpata's Sword",sub="Priwen",ammo="Staunch Tathlum +1",
-		head="Odyssean Helm",augments={'Pet: "Regen"+2','Accuracy+20','Phalanx +4','Accuracy+18 Attack+18'}},body="Odyssean Chestplate",hands="Souveran handschuhs +1",legs="Sakpata's Cuisses",feet="Souveran Schuhs +1",
+		head={name="Odyssean Helm",augments={'Pet: "Regen"+2','Accuracy+20','Phalanx +4','Accuracy+18 Attack+18'}},body="Odyssean Chestplate",hands="Souveran handschuhs +1",legs="Sakpata's Cuisses",feet="Souveran Schuhs +1",
 		ear1="Andoaa Earring",ear2="Odnowa Earring +1",ring1={name="Stikini Ring +1",bag="wardrobe 3"},ring2={name="Stikini Ring +1",bag="wardrobe 1"},
 		neck="Colossus's Torque",waist="Creed baudrier",back="Weard Mantle"
 	}
@@ -104,13 +104,14 @@ function get_sets()
 
 	sets.Midcast.Flash = {
 		main="Brilliance",sub="Svalinn",ammo="Incantor Stone",
-		head="Souveran Schaller +1",body="Souveran Cuirass +1",hands="Souveran handschuhs +1",legs="Souveran Diechlings +1",feet="Eschite Greaves",
+		head="Souveran Schaller +1",body="Souveran Cuirass +1",hands="Souveran handschuhs +1",legs="Souveran Diechlings +1",feet="Chevalier's Sabatons +2",
 		ear1="Cryptic Earring",ear2="Odnowa Earring +1",ring1="Supershear Ring",ring2="Eihwaz Ring",
 		neck="Moonlight necklace",waist="Goading Belt",back={name="Rudianos's Mantle",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Fast Cast"+10','Damage taken-5%'}}
 	}
 
 	sets.Midcast.Flash.sird = set_combine(sets.Midcast.Flash,{
-		head="Souveran Schaller +1",hands="Eschite Gauntlets",legs="Founder's Hose",feet="Eschite Greaves",
+		ammo="Staunch Tathlum +1",
+		head="Souveran Schaller +1",body="Chevalier's Cuirass +2",hands="Eschite Gauntlets",feet="Eschite Greaves",
 		neck="Moonlight necklace",back="Moonbeam Cape"
 	})
 
@@ -123,7 +124,7 @@ function get_sets()
 	})
 
 	sets.Midcast.Cure = {
-		main="Brilliance",sub="Svalinn",ammo="Staunch Tathlum",
+		main="Caballarius Sword",sub="Svalinn",ammo="Staunch Tathlum",
 		head="Souveran Schaller +1",body="Souveran Cuirass +1",hands="Macabre Gauntlets +1",legs="Souveran Diechlings +1",feet="Eschite Greaves",
 		ear1="Cryptic Earring",ear2="Odnowa Earring +1",ring1="Supershear Ring",ring2="Eihwaz Ring",
 		neck="Sacro Gorget",waist="Creed baudrier",back={name="Rudianos's Mantle",augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5'}}

@@ -140,7 +140,7 @@ function get_sets()
 
 	sets.Midcast.MAcc = {
 		main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Academic's Mortarboard +3",body="Academic's Gown +3",hands="Pedagogy Bracers +3",legs="Academic's Pants +3",feet="Academic's Loafers +3",
+		head="Academic's Mortarboard +3",body="Academic's Gown +3",hands="Pedagogy Bracers +3",legs="Arbatel Pants +2",feet="Academic's Loafers +3",
 		ear1="Malignance Earring",ear2="Regal Earring",ring1={name="Stikini Ring +1",bag="wardrobe 3"},ring2={name="Stikini Ring +1",bag="wardrobe 1"},
 		neck="Argute Stole +1",waist="Luminary Sash",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
 	}
@@ -160,8 +160,8 @@ function get_sets()
 	sets.Midcast.EarthHelix = set_combine(sets.Midcast.Helix,{neck="Quanpur Necklace"})
 	sets.Midcast.LightHelix = set_combine(sets.Midcast.Helix,{main="Daybreak",ring1="Weatherspoon Ring"})
 
-	sets.Midcast.MB = set_combine(sets.Midcast.MAB,{body="Arbatel Gown +2",hands="Arbatel Bracers +2",legs="Agwu's Slops",feet="Arbatel Loafers +2",ring2="Mujin Band"})
-	sets.Midcast.MBHelix = set_combine(sets.Midcast.Helix,{body="Arbatel Gown +2",hands="Arbatel Bracers +2",legs="Agwu's Slops",ring2="Mujin Band"})
+	sets.Midcast.MB = set_combine(sets.Midcast.MAB,{body="Agwu's Robe",hands="Arbatel Bracers +2",legs="Arbatel Pants +2",feet="Arbatel Loafers +3",ring2="Metamorph Ring +1"})
+	sets.Midcast.MBHelix = set_combine(sets.Midcast.Helix,{body="Arbatel Gown +2",hands="Arbatel Bracers +2",legs="Agwu's Slops",ring2="Metamorph Ring +1"})
 	sets.Midcast.MBDarkHelix = set_combine(sets.Midcast.MBHelix,{head="Pixie Hairpin +1",ring1="Archon Ring"})
 	sets.Midcast.MBEarthHelix = set_combine(sets.Midcast.MBHelix,{neck="Quanpur Necklace"})
 	sets.Midcast.MBLightHelix = set_combine(sets.Midcast.MBHelix,{main="Daybreak",ring1="Weatherspoon Ring"})
@@ -316,11 +316,6 @@ function buff_change(name,gain,buff_details)
     updatedisplay()
 	aftercast()
 end
-
-function zeni_pic()
-    equip({range="Soultrapper 2000",ammo="Blank Soulplate"})
-	send_command('@wait 12; input /item "Soultrapper 2000" <t>; wait 21.0; input /t Amaiya Camera Ready')
-end
  
 function precast(spell,action)
 	if (spell.type:endswith('Magic') or spell.type == "Ninjutsu") and buffactive['Silence'] then
@@ -436,7 +431,7 @@ function midcast(spell,action)
 		end
 
 		if buffactive['Klimaform'] and spell.element == world.weather_element then
-            equip({feet="Arbatel Loafers +2"})
+            equip({feet="Arbatel Loafers +3"})
 		end
 
 		if buffactive['Immanence'] then

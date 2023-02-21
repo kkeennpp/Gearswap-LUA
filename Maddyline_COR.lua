@@ -30,7 +30,7 @@ function get_sets()
 	})
 
 	sets.TP.DT = set_combine(sets.TP,{
-        head="Malignance Chapeau",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets",
+        head="Malignance Chapeau",body="Nyame Mail",hands="Nyame Gauntlets",legs="Malignance Tights",feet="Nyame Sollerets",
 	})
 
 	sets.TP.HighACC = set_combine(sets.TP,{
@@ -59,30 +59,19 @@ function get_sets()
 	sets.Midshot = {}
 
 	sets.Midshot.LowACC = {
-		head="Malignance Chapeau",body="Ikenga's Vest",hands="Malignance Gloves",legs="Adhemar kecks +1",feet="Ikenga's Clogs",
+		head="Malignance Chapeau",body="Chasseur's Frac +2",hands="Chasseur's Gants +2",legs="Malignance Tights",feet="Chasseur's Bottes +2",
 		ear1="Enervating Earring",ear2="Sherida Earring",ring1="Ilabrat Ring",ring2="Regal Ring",
-		neck="Commodore charm +1",waist="Kwahu Kachina Belt +1",back={name="Camulus's mantle",augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%'}}
-	}
-
-	sets.Midshot.Crit = {
-		head="Meghanada Visor +2",body="Nisroch Jerkin",hands="Mummu Wrists +2",legs="Amini bragues +2",feet="Arcadian socks +3",
-		ear1="Odr Earring",ear2="Amini Earring",ring1="Dingir Ring",ring2="Regal Ring",
-		neck="Scout's Gorget +1",waist="Kwahu Kachina Belt +1",back={name="Camulus's mantle",augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%'}}
+		neck="Commodore charm +1",waist="Eschan Stone",back={name="Camulus's mantle",augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%'}}
 	}
 
 	sets.Midshot.Trippleshot = set_combine(sets.Midshot.LowACC,{
-		body="Arcadian Jerkin +3",
+		body="Chasseur's Frac +2",
 	})
 
 	sets.Midshot.HighACC = set_combine(sets.Midshot.LowACC,{
-		body="Orion Jerkin +2",legs="Orion Braccae +2",feet="Orion Socks +2",
 	})
 
 	sets.Midshot.Hybrid = set_combine(sets.Midshot.LowACC,{
-	})
-
-	sets.Midshot.Barrage = set_combine(sets.Midshot.LowACC,{
-		head="Arcadian Beret +3",body="Orion Jerkin +2",hands="Orion Bracers +2",legs="Orion Braccae +2",feet="Orion Socks +2",
 	})
 
 	----------------------
@@ -107,7 +96,7 @@ function get_sets()
 	})
 
 	sets.WS['Leaden Salute'] = set_combine(sets.WS,{
-		ammo="Eminent Bullet",
+		ammo="Living Bullet",
 		head="Pixie Hairpin +1",body="Lanun Frac +3",feet="Lanun Bottes +3",
 		ear1="Friomisi Earring",ear2="Moonshade Earring",ring1="Dingir Ring",ring2="Archon Ring",
 		neck="Commodore charm +1",waist="Eschan Stone",back={name="Camulus's mantle",augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%'}}
@@ -131,11 +120,15 @@ function get_sets()
     sets.JA['Wild Card'] = {feet="Lanun Bottes +3"}
     sets.JA['Random Deal'] = {body="Lanun Frac +3"}
 	sets.JA.Rolls = {
-        head="Lanun Tricorne +1",body="Chasseur's Frac",hands="Chasseur's Gants +2",legs="Nyame Flanchard",feet="Nyame Sollerets",
+        head="Lanun Tricorne +1",body="Chasseur's Frac +2",hands="Chasseur's Gants +2",legs="Nyame Flanchard",feet="Nyame Sollerets",
         neck="Regal Necklace",ring1="Luzaf's Ring",ring2="Gelatinous Ring +1",back="Camulus's mantle",
 	}
-	sets.JA["Double Shot"] = {head="Amini Gapette +1"}
-	sets.JA["Eagle Eye Shot"] = {legs="Arcadian Braccae +3"}
+	sets.JA.QuickDraw = {
+		ammo="Living Bullet",
+		head="Malignance Chapeau",body="Lanun Frac +3",hands="Nyame Gauntlets",legs="Malignance Tights",feet="Chasseur's Bottes +2",
+		ear1="Friomisi Earring",ear2="Dedition earring",ring1="Dingir Ring",ring2="K'ayres Ring",
+		neck="Commodore charm +1",waist="Eschan Stone",back={name="Camulus's mantle",augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%'}}
+	}
 
 	---------------
 	-- Aftercast --
@@ -149,7 +142,7 @@ end
 --------------------------------------------------------------------------------------------------------------
 
 AccIndex = 1
-AccArray = {"LowACC","HighACC","Hybrid","Crit"}
+AccArray = {"LowACC","HighACC","Hybrid"}
 
 cidleset = 'Load Temp'
 CPMode = false
@@ -322,6 +315,10 @@ function precast(spell,action)
         equip(equipSet)
 	elseif (spell.type == "CorsairRoll" or spell.english == "Double-Up") then
 		equipSet = sets.JA.Rolls
+		add_to_chat(122,spell.name .. ' Set')
+		equip(equipSet)
+	elseif spell.type == "CorsairShot" then
+		equipSet = sets.JA.QuickDraw
 		add_to_chat(122,spell.name .. ' Set')
 		equip(equipSet)
     end
