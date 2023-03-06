@@ -113,7 +113,7 @@ function get_sets()
 
 	sets.midcast.songs.ballad = set_combine(sets.midcast.songs,{})
 	--sets.midcast.songs.ballad = set_combine(sets.midcast.songs,{legs="Fili Rhingrave +1"})
-	sets.midcast.songs.scherzo = set_combine(sets.midcast.songs,{feet="Fili Cothurnes +1"})
+	sets.midcast.songs.scherzo = set_combine(sets.midcast.songs,{neck="Warder's Charm +1",feet="Fili Cothurnes +1"})
 	sets.midcast.songs.paeon = set_combine(sets.midcast.songs,{head="Brioso Roundlet +2"})
 	sets.midcast.songs.minne = set_combine(sets.midcast.songs,{legs="Mousai Seraweels +1"})
 	sets.midcast.songs.etude = set_combine(sets.midcast.songs,{head="Mousai Turban +1"})

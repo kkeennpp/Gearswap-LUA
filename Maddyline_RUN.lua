@@ -332,6 +332,10 @@ function precast(spell,action)
 		end
 		equip(equipSet)
 	elseif spell.type:contains('Magic') or spell.type =='Ninjutsu' then
+        if spell.name == 'Stoneskin' then
+            windower.ffxi.cancel_buff(37)--[[Cancels stoneskin, not delayed incase you get a Quick Cast]]
+            equip(sets.Precast)
+		end
 		equip(sets.Precast)
 	end
     updatedisplay()

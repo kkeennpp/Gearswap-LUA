@@ -55,7 +55,7 @@ function get_sets()
 
 	sets.Idle = {
 		ammo="Staunch Tathlum +1",
-		head="Nyame Helm",body="Jhakri Robe +2",hands="Gleti's Gauntlets",legs="Nyame Flanchard",feet="Gleti's Boots",
+		head="Nyame Helm",body="Hashishin Mintan +2",hands="Gleti's Gauntlets",legs="Nyame Flanchard",feet="Gleti's Boots",
 		ear1="Infused Earring",ear2="Etiolation Earring",ring1="Defending Ring",ring2={name="Stikini Ring +1",bag="wardrobe 1"},
 		neck="Warder's Charm +1",waist="Fucho-no-Obi",back={name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Damage taken-5%'}}
 	}
@@ -418,7 +418,7 @@ function midcast(spell,action)
 				equip(sets.Midcast.MAB)
 				if buffactive['Burst Affinity'] then
 					add_to_chat(122,'burst found')
-					--equip({feet="Hashishin Basmak +1"})
+					equip({feet="Hashishin Basmak +2"})
 				end
 			end
 		elseif BuffingSpells:contains(spell.english) then

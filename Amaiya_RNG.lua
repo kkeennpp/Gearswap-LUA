@@ -60,7 +60,7 @@ function get_sets()
 	sets.Midshot = {}
 
 	sets.Midshot.LowACC = {
-		head="Arcadian Beret +3",body="Ikenga's Vest",hands="Amini Glovelettes +2",legs="Adhemar kecks +1",feet="Ikenga's Clogs",
+		head="Arcadian Beret +3",body="Ikenga's Vest",hands="Amini Glovelettes +2",legs="Ikenga's Trousers",feet="Ikenga's Clogs",
 		ear1="Enervating Earring",ear2="Sherida Earring",ring1="Ilabrat Ring",ring2="Regal Ring",
 		neck="Scout's Gorget +1",waist="Kwahu Kachina Belt +1",back={name="Belenus's Cape",augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10'}}
 	}
