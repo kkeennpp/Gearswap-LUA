@@ -11,16 +11,24 @@ nukes.t4 = {['Earth']="Stone IV",	['Water']="Water IV",	['Air']="Aero IV",	['Fir
 nukes.t5 = {['Earth']="Stone V",	['Water']="Water V",	['Air']="Aero V",	['Fire']="Fire V",	['Ice']="Blizzard V",	['Thunder']="Thunder V",	['Light']="Thunder V",	['Dark']="Blizzard V"}
 
 NukeIndex = 1
-NukeArray = {'Water','Ice','Air','Thunder','Earth','Fire'}
-
-MeleeMode = false
-cidleset = 'Load Temp'
-MBMode = false
-SkillMode = false
-
+EleIndex = 1
 IdleIndex = 1
+AccIndex = 1
+
+NukeArray = {'Thunder','Earth','Air','Ice','Fire','Water'}
+EleArray = {'Thunder','Earth','Air','Ice','Fire','Water'}
+
+AccArray = {"LowACC","Enspell","Hybrid"}
 IdleArray = {'Auto','DT'}
 idleMode = IdleArray[IdleIndex]
+
+cidleset = 'Load Temp'
+MeleeMode = false
+MBMode = false
+DWMode = false
+MBLock = false
+SkillMode = false
+
 
 function get_sets()
 	send_command('input /macro book 1;wait .1;input /macro set 1')
@@ -146,27 +154,31 @@ end
 -- HUD STUFF
 --------------------------------------------------------------------------------------------------------------
 
+local res = require('resources')
+
 Colors = {
     ["Fire"] = "\\cs(255,0,0)",
     ["Water"] = "\\cs(0,128,255)",
     ["Air"] = "\\cs(0,255,0)",
+    ["Light"] = "\\cs(255,255,255)",
     ["Earth"] = "\\cs(255,150,0)",
     ["Ice"] = "\\cs(0,204,204)",
-    ["Thunder"] = "\\cs(102,0,204)"
+    ["Thunder"] = "\\cs(102,0,204)",
+    ['Dark'] = "\\cs(92,92,92)",
 }
 
 function setup_hud()
-    rdm_property = {}
-    rdm_info = {}
-    rdm_info.box={
-        pos={x=2740,y=1324},
+    job_property = {}
+    job_info = {}
+    job_info.box={
+        pos={x=2725,y=1250},
         text={font='Segoe UI Symbol', size=10, Fonts={'sans-serif'},},
         bg={alpha=200,red=0,green=0,blue=0},
-        flags={draggable=true},
+        flags={draggable=false},
         padding=4
     }
-    window = texts.new(rdm_info.box)
-    initialize(window, rdm_info.box)
+    window = texts.new(job_info.box)
+    initialize(window, job_info.box)
     window:show()
     updatedisplay()
 end
@@ -178,54 +190,21 @@ function initialize(text, settings)
     text:append(properties:concat('\n'))
 end
 
-function concat_strings(s)
-    local t = { }
-    for k,v in ipairs(s) do
-        t[#t+1] = tostring(v)
-    end
-    return table.concat(t,"\n")
-end
-
-local res = require('resources')
-update_delay=0
-
 function updatedisplay()
-    modestates_table = {
-		'IdleMode: \\cs(150,150,255)'..IdleArray[IdleIndex]..'\\cr',
-		'   CurrentSet: \\cs(150,150,255)'..tostring(cidleset)..'\\cr',
-		'MBMode: \\cs(150,150,255)'..tostring(MBMode)..'\\cr',
-		'MeleeMode: \\cs(150,150,255)'..tostring(MeleeMode)..'\\cr',
-		'Element: '..Colors[NukeArray[NukeIndex]]..NukeArray[NukeIndex]..'\\cr'
-    }
-    rdm_property.modestates = concat_strings(modestates_table)
+	element = (EleArray[EleIndex]:split('/'))
+
+	local str = 'IdleMode: \\cs(150,150,255)'..IdleArray[IdleIndex]..'\\cr'
+	str = str..'\nAccMode: \\cs(150,150,255)'..AccArray[AccIndex]..'\\cr'
+	str = str..'\n   CurrentSet: \\cs(150,150,255)'..tostring(cidleset)..'\\cr'
+	str = str..'\nMBMode: \\cs(150,150,255)'..tostring(MBMode)..'\\cr'
+	str = str..'\nMeleeMode: \\cs(150,150,255)'..tostring(MeleeMode)..'\\cr'
+	str = str..'\nDWMode: \\cs(150,150,255)'..tostring(DWMode)..'\\cr'
+	str = str..'\nElement: '..Colors[element[1]]..EleArray[EleIndex]..'\\cr'
 
     local info = {}
-    info.modestates = rdm_property.modestates
+    info.modestates = str
 
     window:update(info)
-end
-
-function spairs(t, order)
-    -- collect the keys
-    local keys = {}
-    for k in pairs(t) do keys[#keys+1] = k end
-
-    -- if order function given, sort by it by passing the table and keys a, b,
-    -- otherwise just sort the keys 
-    if order then
-        table.sort(keys, function(a,b) return order(t, a, b) end)
-    else
-        table.sort(keys)
-    end
-
-    -- return the iterator function
-    local i = 0
-    return function()
-        i = i + 1
-        if keys[i] then
-            return keys[i], t[keys[i]]
-        end
-    end
 end
 
 setup_hud()
@@ -383,18 +362,37 @@ function self_command(command)
             windower.add_to_chat(8,'----- Skill-Up Mode Enabled -----')
 			skillup()
 		end
+	elseif commandArgs[1]:lower() == 'acc' then
+		AccIndex = (AccIndex % #AccArray) + 1
+		add_to_chat(158,'Accuracy Level: ' .. AccArray[AccIndex])
 	elseif commandArgs[1]:lower() == 'idle' then
 		IdleIndex = (IdleIndex % #IdleArray) + 1
     elseif commandArgs[1]:lower() == 'ele' then
 		if commandArgs[2]:lower() == 'down' then
-			NukeIndex = (NukeIndex % #NukeArray) - 1
+			if NukeIndex == 1 then
+				EleIndex = 6
+				NukeIndex = 6
+			else
+				EleIndex = EleIndex - 1
+				NukeIndex = NukeIndex - 1
+			end
 		else
+			EleIndex = (EleIndex % #EleArray) + 1
 			NukeIndex = (NukeIndex % #NukeArray) + 1
 		end
+        windower.add_to_chat(8,'----- Element changed to ' .. EleArray[EleIndex] .. ' -----')
     elseif commandArgs[1]:lower() == 'nuke' then
 		local tier = commandArgs[2]:lower()
 		local element = NukeArray[NukeIndex]
 		send_command('@input /ma "'..nukes[tier][element]..'" <t>')
+    elseif commandArgs[1]:lower() == 'dw' then
+        if DWMode then
+            DWMode = false
+            windower.add_to_chat(8,'----- DualWield Mode Disabled -----')
+        else
+            DWMode = true
+            windower.add_to_chat(8,'----- DualWield Mode Enabled -----')
+        end
     elseif command == 'update' then
 		aftercast()
     end

@@ -13,16 +13,16 @@ function get_sets()
 
     sets.Idle = {
 		main="Daybreak",sub="Genbu's Shield",ammo="Homiliary",
-		head="Inyanga Tiara +2",body="Gendewitha Bliaut +1",hands="Chironic Gloves",legs="Inyanga Shalwar +2",feet="Inyanga Crackows +2",
+		head="Inyanga Tiara +2",body="Ebers Bliaut +2",hands="Chironic Gloves",legs="Inyanga Shalwar +2",feet="Inyanga Crackows +2",
 		ear1="Odnowa Earring +1",ear2="Etiolation Earring",ring1="Inyanga Ring",ring2={name="Stikini Ring +1",bag="wardrobe 3"},
 		neck="Warder's Charm +1",waist="Fucho-no-Obi",back="Alaunus's Cape"
 	}	
 
 	-- Used when IdleMode is "DT"
 	sets.Idle.DT = set_combine(sets.Idle,{
-		main="Malignance Pole",sub="Mensch Strap +1",ammo="Homiliary",
-		head="Gendewitha Caubeen +1",body="Gendewitha Bliaut +1",
-		ring1="Dark Ring",ring2="Gelatinous Ring +1",
+		main="Malignance Pole",sub="Mensch Strap +1",
+		legs="Ebers Pantaloons +2",
+		ring2="Gelatinous Ring +1",
 		neck="Loricate Torque +1"
 	})
 
@@ -47,19 +47,19 @@ function get_sets()
 		main="Cath Palug Hammer",sub="Chanter's Shield",ammo="Incantor Stone",
 		head="Nahtirah Hat",body="Inyanga Jubbah +2",hands="Gendewitha Gages +1",legs="Lengo Pants",feet="Kaykaus Boots",
 		ear1="Loquacious Earring",ear2="Malignance Earring",ring1="Kishar Ring",ring2="Weatherspoon Ring",
-		neck="Voltsurge Torque",waist="Embla Sash",back="Swith Cape"
+		neck="Voltsurge Torque",waist="Embla Sash",back="Fi Follet Cape +1"
 	}
 
 	-- Fast cast for cure spells
 	sets.Precast.Cure = set_combine(sets.Precast,{
-		legs="Ebers Pantaloons +1",feet="Hygieia Clogs",
+		legs="Ebers Pantaloons +2",feet="Hygieia Clogs",
 		ear2="Nourish. Earring +1",
 		neck="Voltsurge Torque",back="Pahtli Cape"
 	})
 
 	-- Fast cast for ailment spells (Divine Benison works well here)
 	sets.Precast.Ailment = set_combine(sets.Precast,{
-		head="Ebers Cap",legs="Ebers Pantaloons +1"
+		head="Ebers Cap",legs="Ebers Pantaloons +2"
 	})
 
 	------------------------
@@ -78,7 +78,7 @@ function get_sets()
 
 	sets.Midcast.Cure = {
 		main="Chatoyant Staff",sub="Enki Strap",ammo="Hydrocera",
-		head="Gendewitha Caubeen +1",body="Ebers Bliaut +1",hands="Theophany Mitts +2",legs="Ebers Pantaloons +1",feet="Kaykaus Boots",
+		head="Gendewitha Caubeen +1",body="Ebers Bliaut +2",hands="Theophany Mitts +2",legs="Ebers Pantaloons +2",feet="Kaykaus Boots",
 		ear1="Glorious Earring",ear2="Nourish. Earring +1",ring1="Sirona's Ring",ring2="Ephedra Ring",
 		neck="Colossus's Torque",waist="Korin Obi",back="Alaunus's Cape"
 	}
@@ -103,7 +103,7 @@ function get_sets()
 	-- Make sure this set has 500 skill as well.
 	sets.Midcast.Barspell = set_combine(sets.Midcast.Enhancing,{
 		main="Beneficus",
-		head="Ebers Cap",body="Ebers Bliaut +1",hands="Ebers Mitts",legs="Piety Pantaloons",feet="Ebers Duckbills"
+		head="Ebers Cap",body="Ebers Bliaut +2",hands="Ebers Mitts",legs="Piety Pantaloons",feet="Ebers Duckbills"
 	})
 
 	sets.Midcast.Regen = set_combine(sets.Midcast.EnhancingDuration,{
@@ -112,8 +112,8 @@ function get_sets()
 
 	sets.Midcast.MAcc = {
 		main="Grioavolr",sub="Enki Strap",ammo="Hydrocera",
-		head="Inyanga Tiara +2",body="Theophany Bliaut +2",hands="Inyanga Dastanas +2",legs="Inyanga shalwar +1",feet="Piety Duckbills +1",
-		ear1="Gwati Earring",ear2="Nourish. Earring +1",ring1="Inyanga Ring",ring2="Sangoma Ring",
+		head="Inyanga Tiara +2",body="Theophany Bliaut +2",hands="Kaykaus Cuffs +1",legs="Chironic Hose",feet="Piety Duckbills +1",
+		ear1="Regal Earring",ear2="Ebers Earring",ring1={name="Stikini Ring +1",bag="wardrobe 3"},ring2="Metamorph Ring +1",
 		neck="Sanctity Necklace"
 	}
 
@@ -121,7 +121,7 @@ function get_sets()
 	})
 	
 	sets.Midcast.naSpell = set_combine(sets.Precast,{
-		head="Ebers Cap",body="Ebers Bliaut +1",hands="Inyanga Dastanas +2",legs="Theophany pantaloons",feet="Vanya Clogs",
+		head="Ebers Cap",body="Ebers Bliaut +2",hands="Inyanga Dastanas +2",legs="Theophany pantaloons",feet="Vanya Clogs",
 		ring1="Sirona's Ring",ring2="Ephedra Ring",
 		neck="Cleric's Torque"
 	})

@@ -9,8 +9,8 @@ NukeIndex = 1
 EleIndex = 1
 IdleIndex = 1
 
-NukeArray = {'Fire','Ice','Air','Earth','Thunder','Water'}
-EleArray = {'Fire','Ice','Air','Earth','Thunder','Water'}
+NukeArray = {'Thunder','Earth','Air','Ice','Fire','Water'}
+EleArray = {'Thunder','Earth','Air','Ice','Fire','Water'}
 
 IdleArray = {'Auto','DT','MEva'}
 idleMode = IdleArray[IdleIndex]
@@ -438,8 +438,18 @@ function self_command(command)
 		IdleIndex = (IdleIndex % #IdleArray) + 1
         windower.add_to_chat(8,'----- Idle mode updated -----')
     elseif commandArgs[1]:lower() == 'ele' then
-		EleIndex = (EleIndex % #EleArray) + 1
-		NukeIndex = (NukeIndex % #NukeArray) + 1
+		if commandArgs[2]:lower() == 'down' then
+			if NukeIndex == 1 then
+				EleIndex = 6
+				NukeIndex = 6
+			else
+				EleIndex = EleIndex - 1
+				NukeIndex = NukeIndex - 1
+			end
+		else
+			EleIndex = (EleIndex % #EleArray) + 1
+			NukeIndex = (NukeIndex % #NukeArray) + 1
+		end
         windower.add_to_chat(8,'----- Element changed to ' .. EleArray[EleIndex] .. ' -----')
     elseif commandArgs[1]:lower() == 'nuke' then
 		local tier = commandArgs[2]:lower()

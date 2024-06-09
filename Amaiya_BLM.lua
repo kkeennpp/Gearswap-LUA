@@ -15,8 +15,8 @@ nukes.storm = {['Earth']="Sandstorm",	['Water']="Rainstorm",	['Air']="Windstorm"
 NukeIndex = 1
 EleIndex = 1
 SCIndex = 1
-NukeArray = {'Ice','Thunder','Earth','Fire','Water','Air'}
-EleArray = {'Ice','Thunder','Earth','Fire','Water','Air'}
+NukeArray = {'Thunder','Earth','Air','Ice','Fire','Water'}
+EleArray = {'Thunder','Earth','Air','Ice','Fire','Water'}
 
 MeleeMode = false
 cidleset = 'Load Temp'
@@ -367,12 +367,18 @@ function self_command(command)
         handle_strategems(commandArgs[2])
     elseif commandArgs[1]:lower() == 'ele' then
 		if commandArgs[2]:lower() == 'down' then
-			EleIndex = (EleIndex % #EleArray) - 1
-			NukeIndex = (NukeIndex % #NukeArray) - 1
+			if NukeIndex == 1 then
+				EleIndex = 6
+				NukeIndex = 6
+			else
+				EleIndex = EleIndex - 1
+				NukeIndex = NukeIndex - 1
+			end
 		else
 			EleIndex = (EleIndex % #EleArray) + 1
 			NukeIndex = (NukeIndex % #NukeArray) + 1
 		end
+        windower.add_to_chat(8,'----- Element changed to ' .. EleArray[EleIndex] .. ' -----')
     elseif commandArgs[1]:lower() == 'nuke' then
 		local tier = commandArgs[2]:lower()
 		local element = NukeArray[NukeIndex]

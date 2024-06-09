@@ -10,7 +10,7 @@ function get_sets()
 	}
 
 	sets.Idle = {
-        head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets",
+        head="Amini Gapette +2",body="Nyame Mail",hands="Amini Glovelettes +2",legs="Nyame Flanchard",feet="Nyame Sollerets",
 		ear1="Etiolation Earring",ear2="Infused Earring",ring1="Defending Ring",ring2="Sheltered Ring",
 		neck="Warder's Charm +1",waist="Flume Belt +1",back={name="Belenus's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%'}}
 	}
@@ -62,12 +62,12 @@ function get_sets()
 	sets.Midshot.LowACC = {
 		head="Arcadian Beret +3",body="Ikenga's Vest",hands="Amini Glovelettes +2",legs="Ikenga's Trousers",feet="Ikenga's Clogs",
 		ear1="Enervating Earring",ear2="Sherida Earring",ring1="Ilabrat Ring",ring2="Regal Ring",
-		neck="Scout's Gorget +1",waist="Kwahu Kachina Belt +1",back={name="Belenus's Cape",augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10'}}
+		neck="Iskur Gorget",waist="Kwahu Kachina Belt +1",back={name="Belenus's Cape",augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10'}}
 	}
 
 	sets.Midshot.Crit = {
 		head="Meghanada Visor +2",body="Nisroch Jerkin",hands="Mummu Wrists +2",legs="Amini bragues +2",feet="Arcadian socks +3",
-		ear1="Odr Earring",ear2="Amini Earring",ring1="Dingir Ring",ring2="Regal Ring",
+		ear1="Odr Earring",ear2="Amini Earring +1",ring1="Dingir Ring",ring2="Regal Ring",
 		neck="Scout's Gorget +1",waist="Kwahu Kachina Belt +1",back={name="Belenus's Cape",augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Crit.hit rate+10'}}
 	}
 
@@ -108,25 +108,25 @@ function get_sets()
 		neck="Fotia Gorget",back={name="Belenus's Cape",augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Crit.hit rate+10'}}
 	})
     sets.WS["Jishnu's Radiance"].PDL = set_combine(sets.WS["Jishnu's Radiance"],{
-		body="Amini Caban +2",ear2="Amini Earring"
+		body="Amini Caban +2",ear2="Amini Earring +1"
 	})
 
     sets.WS['Last Stand'] = set_combine(sets.WS,{
 		ear2="Moonshade Earring",waist="Kwahu Kachina Belt +1"
 	})
     sets.WS['Last Stand'].PDL = set_combine(sets.WS,{
-		body="Amini Caban +2",ear2="Amini Earring",waist="Kwahu Kachina Belt +1"
+		body="Amini Caban +2",ear2="Amini Earring +1",waist="Kwahu Kachina Belt +1"
 	})
 
 	sets.WS['Coronach'] = set_combine(sets.WS,{
 		ear2="Odr Earring"
 	})
 	sets.WS['Coronach'].PDL = set_combine(sets.WS,{
-		body="Amini Caban +2",ear2="Amini Earring",ear2="Odr Earring"
+		body="Amini Caban +2",ear2="Amini Earring +1",ear2="Odr Earring"
 	})
 
 	sets.WS['Namas Arrow'] = set_combine(sets.WS,{
-		body="Amini Caban +2",ear2="Amini Earring",ear2="Odr Earring"
+		body="Amini Caban +2",ear2="Amini Earring +1",ear2="Odr Earring"
 	})
 
 	sets.WS['Trueflight'] = set_combine(sets.WS,{

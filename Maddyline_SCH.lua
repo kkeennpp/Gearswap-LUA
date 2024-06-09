@@ -18,10 +18,10 @@ EleIndex = 1
 SCIndexT1 = 1
 SCIndexT2 = 1
 SCTier = 2
-NukeArray = {'Ice','Water','Air','Thunder','Earth','Fire'}
-EleArray = {'Ice','Water','Air','Thunder','Earth','Fire'}
-SCArrayT1 = {'Induration','Reverberation','Detonation','Impaction','Scission','Liquefaction'}
-SCArrayT2 = {'Distortion','Distortion','Fragmentation','Fragmentation','Gravitation','Fusion'}
+NukeArray = {'Thunder','Earth','Air','Ice','Fire','Water'}
+EleArray = {'Thunder','Earth','Air','Ice','Fire','Water'}
+SCArrayT1 = {'Impaction','Scission','Detonation','Induration','Liquefaction','Reverberation'}
+SCArrayT2 = {'Fragmentation','Gravitation','Fragmentation','Distortion','Fusion','Distortion'}
 
 MeleeMode = false
 cidleset = 'Load Temp'
@@ -51,17 +51,15 @@ function get_sets()
 
     sets.Idle = {
 		main="Mpaca's Staff",sub="Mensch Strap +1",ammo="Homiliary",
-		head="Befouled Crown",body="Agwu's Robe",hands="Chironic Gloves",legs="Assiduity Pants +1",feet="Nyame Sollerets",
+		head="Befouled Crown",body="Arbatel Gown +2",hands="Chironic Gloves",legs="Assiduity Pants +1",feet="Nyame Sollerets",
 		ear1="Etiolation Earring",ear2="Infused Earring",ring1={name="Stikini Ring +1",bag="wardrobe 3"},ring2="Gelatinous Ring +1",
-		neck="Sanctity Necklace",waist="Fucho-no-Obi",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
+		neck="Sanctity Necklace",waist="Fucho-no-Obi",back="Solemnity Cape"
 	}
 
 	-- Used when IdleMode is "DT"
 	sets.Idle.DT = set_combine(sets.Idle,{
 		ammo="Staunch Tathlum +1",
-		main="Malignance Pole",sub="Kaja Grip",
-		ear2="Ethereal Earring",ring1="Dark Ring",ring2="Defending Ring",
-		neck="Loricate Torque +1"
+		legs="Arbatel Pants +2",
 	})
 
 	-- Used when IdleMode is "MEva"
@@ -72,8 +70,7 @@ function get_sets()
 	})
 
 	sets.Idle.Sublimation = {
-		waist="Embla Sash"
-		--head="Academic's Mortarboard +3",body="Pedagogy Gown +3",ear1="Savant's Earring",waist="Embla Sash"
+		head="Academic's Mortarboard +2",body="Pedagogy Gown +1",ear1="Savant's Earring",waist="Embla Sash"
 	}
 
 	sets.Idle.MVMT = {feet="Herald's Gaiters"}
@@ -83,10 +80,10 @@ function get_sets()
 	-------------
 	
 	sets.Melee = {
-		main="Malignance Pole",sub="Mensch Strap +1",ammo="Homiliary",
-        head="Nyame Helm",body="Jhakri Robe +2",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets",
+		main="Mpaca's Staff",sub="Mensch Strap +1",ammo="Homiliary",
+        head="Arbatel Bonnet +2",body="Arbatel Gown +2",hands="Nyame Gauntlets",legs="Arbatel Pants +2",feet="Nyame Sollerets",
 		ear1="Etiolation Earring",ear2="Ethereal Earring",ring1="Defending Ring",ring2="Patricius Ring",
-		neck="Sanctity Necklace",waist="Eschan Stone",back="Solemnity Cape"
+		neck="Sanctity Necklace",waist="Goading Belt",back="Solemnity Cape"
 	}
 
 	-------------
@@ -105,7 +102,7 @@ function get_sets()
 		body="Heka's Kalasiris",ear2="Mendicant's Earring"
 	})
 
-	sets.Precast.Grimoire = {head="Pedagogy Mortarboard +2",feet="Academic's Loafers +1"}
+	sets.Precast.Grimoire = {head="Pedagogy Mortarboard +2",feet="Academic's Loafers +3"}
 	sets.Precast.Dispelga = set_combine(sets.Precast,{main="Daybreak",sub="Ammurapi Shield"})
 
 	------------------------
@@ -123,7 +120,7 @@ function get_sets()
 
 	sets.Midcast.Cure = {
 		main="Chatoyant Staff",sub="Enki Strap",ammo="Pemphredo Tathlum",
-		head="Gendewitha Caubeen +1",body="Gendewitha Bliaut +1",hands="Pedagogy Bracers +3",legs="Academic's Pants +3",feet="Pedagogy Loafers +3",
+		head="Gendewitha Caubeen +1",body="Gendewitha Bliaut +1",hands="Pedagogy Bracers +3",legs="Academic's Pants +2",feet="Pedagogy Loafers +3",
 		ear1="Malignance Earring",ear2="Mendicant's Earring",ring1="Stikini Ring +1",ring2="Sirona's Ring",
 		neck="Colossus's Torque",waist="Korin Obi",back="Twilight Cape"
 	}
@@ -136,46 +133,45 @@ function get_sets()
 		neck="Colossus's Torque",waist="Embla Sash",back="Fi Follet Cape +1"
 	}
 
-	sets.Midcast.Regen = set_combine(sets.Midcast.Enhancing,{head="Arbatel Bonnet +1",body="Telchine Chasuble",back="Bookworm's Cape"})
+	sets.Midcast.Regen = set_combine(sets.Midcast.Enhancing,{body="Telchine Chasuble",back="Lugh's Cape"})
 	sets.Midcast.Storm = set_combine(sets.Midcast.Enhancing,{feet="Pedagogy Loafers +1"})
 
 	sets.Midcast.MAcc = {
 		main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Academic's Mortarboard +1",body="Academic's Gown +1",hands="Pedagogy Bracers +1",legs="Academic's Pants +1",feet="Academic's Loafers +1",
+		head="Academic's Mortarboard +2",body="Academic's Gown +2",hands="Arbatel Bracers +3",legs="Arbatel Pants +2",feet="Academic's Loafers +3",
 		ear1="Malignance Earring",ear2="Regal Earring",ring1={name="Stikini Ring +1",bag="wardrobe 3"},ring2={name="Stikini Ring +1",bag="wardrobe 1"},
 		neck="Argute Stole +1",waist="Luminary Sash",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10'}}
 	}
 
 	sets.Midcast.MAB = {
 		main="Bunzi's Rod",sub="Ammurapi Shield",ammo="Ghastly Tathlum",
-		head="Pedagogy Mortarboard +2",body="Amalric Doublet +1",hands="Amalric Gages +1",legs="Amalric Slops +1",feet="Amalric Nails +1",
-		ear1="Malignance Earring",ear2="Regal Earring",ring1="Freke Ring",ring2="Shiva Ring +1",
+		head="Arbatel Bonnet +2",body="Arbatel Gown +2",hands="Arbatel Bracers +3",legs="Arbatel Pants +2",feet="Arbatel Loafers +3",
+		ear1="Malignance Earring",ear2="Regal Earring",ring1="Freke Ring",ring2="Metamorph Ring +1",
 		neck="Argute Stole +1",waist="Sacro Cord",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10'}}
 	}
 
 	sets.Midcast.Helix = set_combine(sets.Midcast.MAB,{
-		sub="Culminus",ammo="Ghastly Tathlum",
-		head="Agwu's Cap"
+		sub="Culminus",
 	})
 	sets.Midcast.DarkHelix = set_combine(sets.Midcast.Helix,{head="Pixie Hairpin +1",ring2="Archon Ring"})
 	sets.Midcast.EarthHelix = set_combine(sets.Midcast.Helix,{neck="Quanpur Necklace"})
 	sets.Midcast.LightHelix = set_combine(sets.Midcast.Helix,{main="Daybreak",ring1="Weatherspoon Ring"})
-
-	sets.Midcast.MB = set_combine(sets.Midcast.MAB,{ring2="Mujin Band",legs="Agwu's Slops",feet="Agwu's Pigaches"})
-	sets.Midcast.MBHelix = set_combine(sets.Midcast.Helix,{body="Agwu's Robe",legs="Agwu's Slops",ring2="Mujin Band"})
+	
+	sets.Midcast.MB = set_combine(sets.Midcast.MAB,{head="Pedagogy Mortarboard +3"})
+	sets.Midcast.MBHelix = set_combine(sets.Midcast.Helix,{})
 	sets.Midcast.MBDarkHelix = set_combine(sets.Midcast.MBHelix,{head="Pixie Hairpin +1",ring1="Archon Ring"})
 	sets.Midcast.MBEarthHelix = set_combine(sets.Midcast.MBHelix,{neck="Quanpur Necklace"})
 	sets.Midcast.MBLightHelix = set_combine(sets.Midcast.MBHelix,{main="Daybreak",ring1="Weatherspoon Ring"})
 	
 	sets.Midcast.Dark = set_combine(sets.Midcast.MAcc,{
 		main="Rubicundity",sub="Ammurapi Shield",ammo="Ghastly Tathlum +1",
-		body="Academic's Gown +1",hands="Academic's Bracers +1",legs="Pedagogy Pants +1",feet="Agwu's Pigaches",
+		body="Academic's Gown +2",hands="Academic's Bracers +2",legs="Pedagogy Pants +1",feet="Agwu's Pigaches",
 		ring1="Archon Ring",ring2="Evanescence Ring",
 		neck="Erra Pendant",waist="Fucho-no-Obi",back="Bookworm's Cape"
 	})
 
 	sets.Midcast.Absorb = set_combine(sets.Midcast.MAcc,{
-		body="Academic's Gown +3",hands="Academic's Bracers +3",legs="Pedagogy Pants +3",
+		body="Academic's Gown +2",hands="Academic's Bracers +2",legs="Pedagogy Pants +3",
 		ring1="Archon Ring",ring2="Evanescence Ring",
 		neck="Erra Pendant",waist="Fucho-no-Obi",back="Bookworm's Cape"
 	})
@@ -191,18 +187,35 @@ function get_sets()
 	-- WeaponSkill Sets --
 	----------------------
 
-	sets.WS = {}
+	sets.WS = {
+		Ammo="Amar Cluster",
+		head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets",
+		ear1="Moonshade Earring",ear2="Dominance Earring +1",ring1="Apate Ring",ring2="Petrov Ring",
+		neck="Fotia Gorget",waist="Fotia Belt",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
+	}
+
 	sets.WS["Realmrazer"] = {}
 	sets.WS["Judgment"] = {}
 	sets.WS["Black Halo"] = {}
 	sets.WS["Hexa Strike"] = {}
 	sets.WS["Flash Nova"] = {}
 	sets.WS["Omniscience"] = {
-		ammo="Pemphredo Tathlum",
-		head="Pedagogy Mortarboard +3",body="Amalric Doublet +1",hands="Amalric Gages +1",legs="Amalric Slops +1",feet="Pedagogy Loafers +3",
-		ear1="Malignance Earring",ear2="Regal Earring",ring1="Freke Ring",ring2="Shiva Ring +1",
+		ammo="Sroda Tathlum",
+		head="Pixie Hairpin +1",body="Nyame Mail",hands="Jhakri Cuffs +2",legs="Nyame Flanchard",feet="Nyame Sollerets",
+		ear1="Malignance Earring",ear2="Regal Earring",ring1="Archon Ring",ring2="Metamorph Ring +1",
 		neck="Argute Stole +1",waist="Refoccilation Stone",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
 	}
+
+	sets.WS["Cataclysm"] = set_combine(sets.WS["Omniscience"],{
+	})
+
+	sets.WS["Earth Crusher"] = set_combine(sets.WS["Omniscience"],{
+		head="Nyame Helm",neck="Quanpur Necklace",ring1="Freke Ring",
+	})
+
+	sets.WS["Flash Nova"] = set_combine(sets.WS["Omniscience"],{
+		head="Nyame Helm",neck="Sanctity Necklace",ring1="Weatherspoon Ring"
+	})
 
 	---------------
 	-- Aftercast --
@@ -366,13 +379,10 @@ function midcast(spell,action)
 	if spell.name:contains('Cure') or spell.name:contains('Cura') then
 		equip(sets.Midcast.Cure)
 		if buffactive['Rapture'] then
-			equip({head="Arbatel Bonnet +1"})
+			equip({head="Arbatel Bonnet +2"})
 		end
 	elseif spell.skill == "Enfeebling Magic" then
 		equip(sets.Midcast.MAcc)
-		if buffactive['Klimaform'] and spell.element == world.weather_element then
-            equip({feet="Arbatel Loafers +1"})
-		end
 	elseif spell.skill == "Enhancing Magic" then
 		if spell.name:contains('storm') then
 			equip(sets.Midcast.Storm)
@@ -386,7 +396,7 @@ function midcast(spell,action)
 		end
 
 		if buffactive['Perpetuance'] then
-			equip({hands="Arbatel Bracers +1"})
+			equip({hands="Arbatel Bracers +3"})
 		end
     elseif spell.type == 'BlackMagic' then
 		if spell.skill == "Elemental Magic" then
@@ -432,11 +442,11 @@ function midcast(spell,action)
 		end
 
 		if buffactive['Klimaform'] and spell.element == world.weather_element then
-            equip({feet="Arbatel Loafers +1"})
+            equip({feet="Arbatel Loafers +2"})
 		end
 
 		if buffactive['Immanence'] then
-            equip({hands="Arbatel Bracers +1"})
+            equip({hands="Arbatel Bracers +3"})
 		end
 	elseif sets.Midcast[spell.english] then
         equip(sets.Midcast[spell.english])
@@ -548,22 +558,31 @@ function self_command(command)
 		end
 	elseif commandArgs[1]:lower() == 'idle' then
 		IdleIndex = (IdleIndex % #IdleArray) + 1
+        windower.add_to_chat(8,'----- Idle mode updated -----')
 	elseif commandArgs[1]:lower() == 'pic' then
 		zeni_pic()
 	elseif commandArgs[1]:lower() == 'strat' then
         handle_strategems(commandArgs[2])
     elseif commandArgs[1]:lower() == 'ele' then
 		if commandArgs[2]:lower() == 'down' then
-			EleIndex = (EleIndex % #EleArray) - 1
-			SCIndexT1 = (SCIndexT1 % #SCArrayT1) - 1
-			SCIndexT2 = (SCIndexT2 % #SCArrayT2) - 1
-			NukeIndex = (NukeIndex % #NukeArray) - 1
+			if NukeIndex == 1 then
+				EleIndex = 6
+				SCIndexT1 = 6
+				SCIndexT2 = 6
+				NukeIndex = 6
+			else
+				EleIndex = EleIndex - 1
+				SCIndexT1 = SCIndexT1 - 1
+				SCIndexT2 = SCIndexT2 - 1
+				NukeIndex = NukeIndex - 1
+			end
 		else
 			EleIndex = (EleIndex % #EleArray) + 1
 			SCIndexT1 = (SCIndexT1 % #SCArrayT1) + 1
 			SCIndexT2 = (SCIndexT2 % #SCArrayT2) + 1
 			NukeIndex = (NukeIndex % #NukeArray) + 1
 		end
+        windower.add_to_chat(8,'----- Element changed to ' .. EleArray[EleIndex] .. ' -----')
     elseif commandArgs[1]:lower() == 'nuke' then
 		local tier = commandArgs[2]:lower()
 		local element = NukeArray[NukeIndex]

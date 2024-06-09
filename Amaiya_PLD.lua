@@ -116,6 +116,7 @@ function get_sets()
 	})
 
 	sets.Midcast.Reprisal = set_combine(sets.Precast,{
+		body="Shabti Cuirass +1",
 	})
 
 	sets.Midcast.Reprisal.sird = set_combine(sets.Midcast.Reprisal,{
@@ -137,6 +138,7 @@ function get_sets()
 	})
 
 	sets.Midcast.Enhancing = {
+		body="Shabti Cuirass +1",
 	}
 
 	sets.Midcast.MAB = {

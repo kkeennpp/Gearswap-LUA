@@ -46,19 +46,36 @@ function get_sets()
 		ear1="Tripudio Earring",ear2="Cessance earring",ring1="Epona's Ring",ring2="Gere Ring",
 		neck="Ninja Nodowa +1",waist="Kentarch Belt +1",back={name="Andartia's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10'}}
 	})
-	sets.TP.LowACC.DW1 = set_combine(sets.TP.LowACC,{body="Adhemar Jacket +1",waist="Reiki Yotai",})
-	sets.TP.LowACC.DW2 = set_combine(sets.TP.LowACC,{body="Adhemar Jacket +1",waist="Reiki Yotai",})
-	sets.TP.LowACC.DW3 = set_combine(sets.TP.LowACC,{body="Adhemar Jacket +1",waist="Reiki Yotai",})
+	sets.TP.LowACC.DW1 = set_combine(sets.TP.LowACC,{
+		head="Ryuo Somen +1",body="Adhemar Jacket +1",
+		waist="Reiki Yotai"
+	})
+	sets.TP.LowACC.DW2 = set_combine(sets.TP.LowACC,{
+		head="Ryuo Somen +1",body="Adhemar Jacket +1",legs="Mochizuki hakama +3",feet="Tatenashi Sune-Ate +1",
+		waist="Reiki Yotai"
+	})
+	sets.TP.LowACC.DW3 = set_combine(sets.TP.LowACC,{
+		head="Ryuo Somen +1",body="Mochizuki chainmail +3",hands="Tatenashi Gote +1",legs="Mochizuki hakama +3",feet="Tatenashi Sune-Ate +1",
+		ear2="Eabani Earring",ring2={name="Chirich Ring +1",bag="wardrobe 1"},waist="Reiki Yotai"
+	})
 
 	sets.TP.HighACC = set_combine(sets.TP.LowACC,{
 		ammo="Seki Shuriken",
 		head="Dampening Tam",body="Ryuo Domaru +1",hands="Tatenashi Gote +1",legs="Tatenashi haidate +1",feet="Tatenashi Sune-Ate +1",
-		ear1="Dignitary's Earring",ear2="Cessance earring",ring1="Epona's Ring",ring2="Gere Ring",
-		neck="Ninja Nodowa +1",waist="Kentarch Belt +1",
+		ear1="Dignitary's Earring",ear2="Hattori Earring",ring1={name="Chirich Ring +1",bag="wardrobe 6"},ring2={name="Chirich Ring +1",bag="wardrobe 1"},
 	})
-	sets.TP.HighACC.DW1 = set_combine(sets.TP.HighACC,{body="Adhemar Jacket +1",waist="Reiki Yotai",})
-	sets.TP.HighACC.DW2 = set_combine(sets.TP.HighACC,{body="Adhemar Jacket +1",waist="Reiki Yotai",})
-	sets.TP.HighACC.DW3 = set_combine(sets.TP.HighACC,{body="Adhemar Jacket +1",waist="Reiki Yotai",})
+	sets.TP.HighACC.DW1 = set_combine(sets.TP.HighACC,{
+		head="Ryuo Somen +1",body="Adhemar Jacket +1",
+		waist="Reiki Yotai"
+	})
+	sets.TP.HighACC.DW2 = set_combine(sets.TP.HighACC,{
+		head="Ryuo Somen +1",body="Adhemar Jacket +1",legs="Mochizuki hakama +3",
+		waist="Reiki Yotai"
+	})
+	sets.TP.HighACC.DW3 = set_combine(sets.TP.HighACC,{
+		head="Ryuo Somen +1",body="Mochizuki chainmail +3",legs="Mochizuki hakama +3",
+		ear2="Eabani Earring",waist="Reiki Yotai"
+	})
 
 	sets.TP.Hybrid = set_combine(sets.TP.LowACC,{
 		head="Nyame Helm",body="Ayanmo Corazza +2",hands="Malignance Gloves",legs="Nyame Flanchard",feet="Nyame Sollerets"
@@ -80,7 +97,7 @@ function get_sets()
 		neck="Voltsurge Torque",waist="Flume Belt +1",back="Moonbeam Cape"
 	}
 
-	sets.Precast.Ninjutsu = set_combine(sets.Precast,{body="Mochizuki Chainmail +1",})
+	sets.Precast.Ninjutsu = set_combine(sets.Precast,{body="Mochizuki Chainmail +3",})
 
 	-------------
 	-- Midcast --
@@ -89,17 +106,21 @@ function get_sets()
     sets.Midcast = {}
 
 	sets.Midcast.MAB = {
+		ammo="Seething Bomblet +1",
+		head="Mochizuki Hatsuburi +3",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets",
+		ear1="Dignitary Earring",ear2="Hattori Earring",ring1="Shiva Ring +1",ring2="Metamorph Ring +1",
+		neck="Ninja Nodowa +1",waist="Eschan Stone",back={name="Andartia's Mantle",augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
 	}
 
 	sets.Midcast.Buffing = set_combine(sets.Precast,{
-		hands="Mochizuki Tekko +1",feet="Hattori Kyahan +1",back="Andartia's Mantle"
+		hands="Mochizuki Tekko +3",feet="Hattori Kyahan +1",back="Andartia's Mantle"
 	})
 
 	sets.Midcast.MACC = {
 	}
 
 	sets.Midcast.MACC.TH = set_combine(sets.Midcast.MACC,{
-		head="Herculean Helm",body="Herculean Vest",legs="Volte Hose",waist="Chaac Belt",ammo="Perfect lucky egg"
+		head="Herculean Helm",legs="Volte Hose",feet="Volte Boots",waist="Chaac Belt",ammo="Perfect lucky egg",
 	})
 
 	----------------------
@@ -115,7 +136,7 @@ function get_sets()
 
 	sets.WS["Blade: Teki"] = set_combine(sets.WS,{
 		head="Mochizuki Hatsuburi +3",
-		ear2="Friomisi Earring",ring2="Shiva Ring +1",
+		ear2="Friomisi Earring",ring2="Metamorph Ring +1",
 		neck="Fotia Gorget",waist="Fotia Belt",
 	})
 	sets.WS["Blade: To"] = set_combine(sets.WS["Blade: Teki"],{})
@@ -150,7 +171,7 @@ function get_sets()
 	})
 
 	sets.WS["Savage Blade"] = set_combine(sets.WS,{
-		head="Mpaca's Cap",
+		head="Mpaca's Cap",ring2="Metamorph Ring +1",
 	})
 
 	sets.WS["Tachi: Ageha"] = set_combine(sets.WS,{

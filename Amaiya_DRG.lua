@@ -11,16 +11,17 @@ function get_sets()
 	sets.JA["Spirit Jump"] = set_combine(sets.Jump,{})
 	sets.JA["Soul Jump"] = set_combine(sets.Jump,{})
 	sets.JA["Spirit Link"] = {hands="Peltast's Vambraces"}
+	sets.JA["Angon"] = {ammo="Angon"}
 
 	sets.Idle = {
 		ammo="Staunch Tathlum +1",
-		head="Hjarrandi Helm",body="Hjarrandi Breastplate",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Gleti's Boots",
+		head="Gleti's Mask",body="Hjarrandi Breastplate",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Gleti's Boots",
 		ear1="Odnowa Earring +1",ear2="Etiolation Earring",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		neck="Loricate Torque +1",waist="Flume Belt +1",back={name="Brigantia's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%'}},ammo="Ginsen"
+		neck="Loricate Torque +1",waist="Flume Belt +1",back={name="Brigantia's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%'}}
 	}
 
 	sets.Idle.Regen = set_combine(sets.Idle,{
-		head="Twilight Helm",body="Sacro Breastplate",
+		body="Sacro Breastplate",
 		ear1="Infused earring",ring1="Sheltered Ring",ring2="Paguroidea Ring",
 		neck="Sanctity Necklace"
 	})
@@ -33,7 +34,7 @@ function get_sets()
 
 	sets.TP = {
 		ammo="Coiste Bodhar",
-		head="Flamma Zucchetto +2",body="Hjarrandi Breastplate",hands="Sulevia's Gauntlets +2",legs="Valorous Hose",feet="Flamma Gambieras +2",
+		head="Flamma Zucchetto +2",body="Hjarrandi Breastplate",hands="Flamma Manopolas +2",legs="Pteroslaver brais +3",feet="Flamma Gambieras +2",
 		ear1="Cessance Earring",ear2="Sherida Earring",ring1="Niqmaddu Ring",ring2="Petrov Ring",
 		neck="Anu Torque",waist="Ioskeha Belt +1",back={name="Brigantia's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%'}}
 	}
@@ -65,7 +66,7 @@ function get_sets()
 
 	sets.WS = {
 		Ammo="KnobKierrie",
-		head="Pteroslaver armet +3",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Flamma Gambieras +2",
+		head="Pteroslaver armet +3",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets",
 		ear1="Moonshade Earring",ear2="Thrud Earring",ring1="Niqmaddu Ring",ring2="Regal Ring",
 		neck="Dragoon's Collar +1",waist="Fotia Belt",back={name="Brigantia's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%'}}
 	}
@@ -87,7 +88,7 @@ function get_sets()
 
 	sets.WS["Camlann's Torment"] = set_combine(sets.WS,{head="Nyame Helm",feet="Nyame Sollerets",ear1="Ishvara Earring"})
 	sets.WS['Sonic Thrust'] = set_combine(sets.WS,{head="Nyame Helm",feet="Nyame Sollerets",ear1="Ishvara Earring"})
-	sets.WS["Savage Blade"] = set_combine(sets.WS,{head="Nyame Helm",feet="Nyame Sollerets",ear1="Ishvara Earring"})
+	sets.WS["Savage Blade"] = set_combine(sets.WS,{head="Nyame Helm",feet="Nyame Sollerets",waist="Sailfi Belt +1"})
 
 	sets.WS['Raiden Thrust'] = set_combine(sets.WS,{
         head="Nyame Helm",feet="Nyame Sollerets",

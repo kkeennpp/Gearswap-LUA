@@ -12,14 +12,15 @@ function get_sets()
 	---------------
 
     sets.Idle = {
-		main="Queller Rod",sub="Ammurapi Shield",ammo="Homiliary",
-		head="Inyanga Tiara +2",body="Ebers Bliaut +2",hands="Inyanga Dastanas +2",legs="Assiduity Pants +1",feet="Inyanga Crackows +2",
-		ear1="Hearty Earring",ear2="Etiolation Earring",ring1="Inyanga Ring",ring2="Gelatinous Ring +1",
-		neck="Warder's Charm",waist="Carrier's Sash",back={name="Alaunus's Cape",augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','Enmity-10','Damage taken-5%'}}
+		main="Queller Rod",sub="Genbu's Shield",ammo="Homiliary",
+		head="Inyanga Tiara +2",body="Ebers Bliaut +2",hands="Ebers Mitts +2",legs="Inyanga Shalwar +2",feet="Inyanga Crackows +2",
+		ear1="Hearty Earring",ear2="Ebers Earring +1",ring1="Inyanga Ring",ring2="Gelatinous Ring +1",
+		neck="Loricate Torque +1",waist="Carrier's Sash",back={name="Alaunus's Cape",augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','Enmity-10','Phys. dmg. taken-10%'}}
 	}	
 
 	-- Used when IdleMode is "DT"
 	sets.Idle.DT = set_combine(sets.Idle,{
+		main="Mafic Cudgel",legs="Ebers Pantaloons +2"
 	})
 
 	-- Used when IdleMode is "MEva"
@@ -34,7 +35,7 @@ function get_sets()
 	sets.TP = {
 		main="Gada",sub="Ammurapi Shield",ammo="Homiliary",
 		head="Ayanmo Zucchetto +2",body="Ayanmo Corazza +2",hands="Ebers Mitts +2",legs="Ebers Pantaloons +2",feet="Ebers Duckbills +2",
-		ear1="Hearty Earring",ear2="Ebers Earring",ring1="K'ayres Ring",ring2="Gelatinous Ring +1",
+		ear1="Hearty Earring",ear2="Ebers Earring +1",ring1="K'ayres Ring",ring2="Gelatinous Ring +1",
 		neck="Sanctity Necklace",waist="Embla Sash",back={name="Alaunus's Cape",augments={'"Fast Cast"+10'}}
 	}
 
@@ -79,7 +80,7 @@ function get_sets()
 		main="Queller Rod",sub="Sors Shield",ammo="Psilomene",
 		head={name="Vanya Hood",augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3'}},body="Ebers Bliaut +2",hands="Theophany Mitts +3",legs="Ebers Pantaloons +2",feet="Kaykaus Boots",
 		ear1="Mendicant's Earring",ear2="Glorious Earring",ring1="Janniston Ring",ring2="Menelaus's Ring",
-		neck="Cleric's Torque",waist="Korin Obi",back={name="Alaunus's Cape",augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','Enmity-10','Damage taken-5%'}}
+		neck="Cleric's Torque",waist="Korin Obi",back={name="Alaunus's Cape",augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','Enmity-10','Phys. dmg. taken-10%'}}
 	}
 
 	sets.Midcast.Curaga = set_combine(sets.Midcast.Cure,{
@@ -89,14 +90,14 @@ function get_sets()
 	-- Enhancing set with 500 skill
 	sets.Midcast.Enhancing = {
 		main="Gada",sub="Ammurapi Shield",ammo="Incantor Stone",
-		head="Befouled Crown",body="Telchine Chasuble",hands="Inyanga Dastanas +2",legs="Piety pantaloons +3",feet="Theophany duckbills +3",
+		head="Befouled Crown",body="Telchine Chasuble",hands="Inyanga Dastanas +2",legs="Piety pantaloons +3",feet="Ebers Duckbills +2",
 		ear1="Andoaa Earring",ear2="Etiolation Earring",ring1="Inyanga Ring",ring2="Gelatinous Ring +1",
-		neck="Colossus's Torque",waist="Cascade Belt",back="Mending Cape"
+		neck="Colossus's Torque",back="Mending Cape"
 	}
 	
 	-- Max enhancing duration set, for when skill doesn't matter.
 	sets.Midcast.EnhancingDuration = set_combine(sets.Midcast.Enhancing,{
-		head="Telchine Cap",body="Telchine Chasuble",hands="Telchine Gloves",legs="Telchine Braconi",
+		head="Telchine Cap",body="Telchine Chasuble",hands="Telchine Gloves",legs="Telchine Braconi",feet="Theophany duckbills +3",
 		waist="Embla Sash"
 	})
 
@@ -112,7 +113,7 @@ function get_sets()
 
 	sets.Midcast.MAcc = {
 		main="Gada",sub="Ammurapi Shield",
-		head="Theophany Cap +2",body="Theophany Bliaut +3",hands="Inyanga Dastanas +2",legs="Theophany pantaloons +2",feet="Theophany duckbills +3",
+		head="Ebers Cap +2",body="Theophany Bliaut +3",hands="Inyanga Dastanas +2",legs="Ebers Pantaloons +2",feet="Theophany duckbills +3",
 		ear1="Gwati Earring",ear2="Regal Earring",ring1="Kishar Ring",ring2="Sangoma Ring",
 		neck="Sanctity Necklace",waist="Luminary Sash",
 	}
@@ -122,8 +123,8 @@ function get_sets()
 	
 	sets.Midcast.naSpell = {
 		head="Ebers Cap +2",body="Ebers Bliaut +2",hands="Inyanga Dastanas +2",legs="Theophany pantaloons +2",feet="Vanya Clogs",
-		ear2="Ebers Earring",ring1="Haoma's Ring",ring2="Menelaus's Ring",
-		neck="Healing Torque"
+		ear2="Ebers Earring +1",ring1="Haoma's Ring",ring2="Menelaus's Ring",
+		neck="Healing Torque",back={name="Alaunus's Cape",augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','Enmity-10','Phys. dmg. taken-10%'}}
 	}
 
 	sets.Midcast["Cursna"] = set_combine(sets.Midcast.naSpell,{})
@@ -259,6 +260,8 @@ function midcast(spell,action)
 		if spell.name:contains('Regen') then
 			equip(sets.Midcast.Regen)
 		elseif spell.name:contains('Bar') then
+			equip(sets.Midcast.Barspell)
+		elseif spell.name:contains('Auspice') then
 			equip(sets.Midcast.Barspell)
 		elseif BoostSpells:contains(spell.name) then
 			equip(sets.Midcast.Enhancing)

@@ -12,9 +12,9 @@ function get_sets()
 
 	sets.Idle = {
 		ammo="Staunch Tathlum +1",
-		head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets",
+		head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Kasuga Haidate +3",feet="Nyame Sollerets",
 		ear1="Odnowa earring +1",ear2="Etiolation Earring",ring1="Patricius Ring",ring2="Gelatinous Ring +1",
-		neck="Warder's Charm +1",waist="Ioskeha Belt +1",back={name="Smertrios's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%'}}
+		neck="Warder's Charm +1",waist="Flume Belt",back={name="Smertrios's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%'}}
 	}
 
 	sets.Idle.Regen = set_combine(sets.Idle,{
@@ -31,7 +31,7 @@ function get_sets()
 
 	sets.TP = {
 		ammo="Coiste Bodhar",
-		head="Flamma Zucchetto +2",body="Kasuga Domaru +3",hands="Tatenashi Gote +1",legs="Kasuga Haidate +2",feet="Tatenashi Sune-Ate +1",
+		head="Flamma Zucchetto +2",body="Kasuga Domaru +3",hands="Tatenashi Gote +1",legs="Kasuga Haidate +3",feet="Tatenashi Sune-Ate +1",
 		ear1="Cessance earring",ear2="Kasuga earring +1",ring1="Flamma Ring",ring2="Niqmaddu Ring",
 		neck="Samurai's Nodowa +1",waist="Ioskeha Belt +1",back="Takaha Mantle",
 	}

@@ -12,7 +12,7 @@ function get_sets()
 	sets.Idle = {
         head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets",
 		ear1="Etiolation Earring",ear2="Infused Earring",ring1="Patricius Ring",ring2="Gelatinous Ring +1",
-		neck="Warder's Charm +1",waist="Flume Belt +1",back={name="Camulus's mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%'}}
+		neck="Warder's Charm +1",waist="Flume Belt",back={name="Camulus's mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%'}}
 	}
 
 	sets.Idle.Regen = set_combine(sets.Idle,{
@@ -43,7 +43,7 @@ function get_sets()
 	-------------
 
 	sets.Preshot = {
-		head="Amini Gapette +1",body="Amini Caban +1",hands="Carmine finger gauntlets +1",back="Lutian Cape",waist="Impulse Belt",legs="Orion Braccae +2",feet="Ikenga's Clogs",neck="Commodore charm +1"
+		head="Ikenga's Hat",body="Ikenga's Vest",hands="Ikenga's Gloves",back="Lutian Cape",waist="Impulse Belt",legs="Ikenga's Trousers",feet="Ikenga's Clogs",neck="Commodore charm +1"
 	}
 
 	sets.PreshotF1 = set_combine(sets.Preshot,{
@@ -91,6 +91,7 @@ function get_sets()
 	})
 
     sets.WS['Last Stand'] = set_combine(sets.WS,{
+		ammo="Chrono Bullet",
 		--ear2="Moonshade Earring",waist="Kwahu Kachina Belt +1"
 		ear2="Amini Earring",waist="Kwahu Kachina Belt +1"
 	})

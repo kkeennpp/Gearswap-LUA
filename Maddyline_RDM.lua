@@ -10,10 +10,10 @@ EleIndex = 1
 IdleIndex = 1
 AccIndex = 1
 
-NukeArray = {'Fire','Ice','Air','Earth','Thunder','Water'}
-EleArray = {'Fire','Ice','Air','Earth','Thunder','Water'}
+NukeArray = {'Thunder','Earth','Air','Ice','Fire','Water'}
+EleArray = {'Thunder','Earth','Air','Ice','Fire','Water'}
 
-AccArray = {"LowACC","HighACC","Hybrid"}
+AccArray = {"LowACC","Enspell","Hybrid"}
 IdleArray = {'Auto','DT','MEva'}
 idleMode = IdleArray[IdleIndex]
 
@@ -75,6 +75,16 @@ function get_sets()
 	sets.TP.Dual = set_combine(sets.TP,{
 		main="Vitiation Sword",sub="Daybreak",
 		ear2="Suppanomimi"
+	})
+	
+	sets.TP.Enspell = set_combine(sets.TP,{
+		main="Qutrub Knife",sub="Ceremonial Dagger",
+		legs="Vitiation Tights +3"
+	})
+	
+	sets.TP.Dual.Enspell = set_combine(sets.TP,{
+		main="Qutrub Knife",sub="Ceremonial Dagger",
+		legs="Vitiation Tights +3",ear1="Suppanomimi"
 	})
 
 	sets.TP.HighACC = set_combine(sets.TP,{
@@ -160,12 +170,12 @@ function get_sets()
 
 	sets.Midcast.MAB = {
 		main="Bunzi's Rod",sub="Ammurapi Shield",ammo="Ghastly Tathlum",
-		head="Cath Palug Crown",body="Amalric Doublet +1",hands="Amalric Gages +1",legs="Amalric Slops +1",feet="Vitiation Boots +3",
-		ear1="Malignance Earring",ear2="Regal Earring",ring1="Shiva Ring +1",ring2="Freke Ring",
+		head="Cath Palug Crown",body="Amalric Doublet +1",hands="Lethargy Gantherots +2",legs="Amalric Slops +1",feet="Vitiation Boots +3",
+		ear1="Malignance Earring",ear2="Lethargy Earring +1",ring1="Freke Ring",ring2="Metamorph Ring +1",
 		neck="Sanctity Necklace",waist="Sacro Cord",back={name="Sucellos's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10'}}
 	}
 
-	sets.Midcast.MB = set_combine(sets.Midcast.MAB,{legs="Merlinic Shalwar",feet="Jhakri Pigaches +2"})
+	sets.Midcast.MB = set_combine(sets.Midcast.MAB,{body="Bunzi's Robe",hands="Amalric Gages +1",legs="Merlinic Shalwar",feet="Jhakri Pigaches +2"})
 	
 	sets.Midcast.Dark = set_combine(sets.Midcast.MAB,{
 		ring2="Evanescence Ring",
@@ -190,7 +200,7 @@ function get_sets()
 	sets.WS.MAB = {
 		ammo="Regal Gem",
 		head="Cath Palug crown",body="Amalric Doublet +1",hands="Jhakri Cuffs +2",legs="Amalric Slops +1",feet="Lethargy Houseaux +2",
-		ear1="Malignance Earring",ear2="Moonshade Earring",ring1="Shiva Ring +1",ring2="Freke Ring",
+		ear1="Malignance Earring",ear2="Moonshade Earring",ring1="Freke Ring",ring2="Metamorph Ring +1",
 		neck="Sanctity Necklace",waist="Sacro Cord",back={name="Sucellos's Cape",augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%'}}
 	}
 
@@ -466,9 +476,16 @@ function aftercast(spell,action)
 				equipSet = sets.TP.Dual.HighACC
 				cidleset = 'DW HighACC'
 			end
+		elseif AccArray[AccIndex] == 'Enspell' then
+			equipSet = equipSet[AccArray[AccIndex]]
+			cidleset = 'Enspell Set'
+			if DWMode then
+				equipSet = sets.TP.Dual.Enspell
+				cidleset = 'DW Enspell Set'
+			end
 		else
 			equipSet = sets.TP
-			cidleset = 'LowACC'
+			cidleset = 'LowACC Set'
 			if DWMode then
 				equipSet = sets.TP.Dual
 				cidleset = 'DW LowACC'
@@ -542,8 +559,18 @@ function self_command(command)
 		IdleIndex = (IdleIndex % #IdleArray) + 1
         windower.add_to_chat(8,'----- Idle mode updated -----')
     elseif commandArgs[1]:lower() == 'ele' then
-		EleIndex = (EleIndex % #EleArray) + 1
-		NukeIndex = (NukeIndex % #NukeArray) + 1
+		if commandArgs[2]:lower() == 'down' then
+			if NukeIndex == 1 then
+				EleIndex = 6
+				NukeIndex = 6
+			else
+				EleIndex = EleIndex - 1
+				NukeIndex = NukeIndex - 1
+			end
+		else
+			EleIndex = (EleIndex % #EleArray) + 1
+			NukeIndex = (NukeIndex % #NukeArray) + 1
+		end
         windower.add_to_chat(8,'----- Element changed to ' .. EleArray[EleIndex] .. ' -----')
     elseif commandArgs[1]:lower() == 'nuke' then
 		local tier = commandArgs[2]:lower()

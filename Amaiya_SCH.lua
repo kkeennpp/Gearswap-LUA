@@ -18,10 +18,10 @@ EleIndex = 1
 SCIndexT1 = 1
 SCIndexT2 = 1
 SCTier = 2
-NukeArray = {'Ice','Water','Air','Thunder','Earth','Fire'}
-EleArray = {'Ice','Water','Air','Thunder','Earth','Fire'}
-SCArrayT1 = {'Induration','Reverberation','Detonation','Impaction','Scission','Liquefaction'}
-SCArrayT2 = {'Distortion','Distortion','Fragmentation','Fragmentation','Gravitation','Fusion'}
+NukeArray = {'Thunder','Earth','Air','Ice','Fire','Water'}
+EleArray = {'Thunder','Earth','Air','Ice','Fire','Water'}
+SCArrayT1 = {'Impaction','Scission','Detonation','Induration','Liquefaction','Reverberation'}
+SCArrayT2 = {'Fragmentation','Gravitation','Fragmentation','Distortion','Fusion','Distortion'}
 
 MeleeMode = false
 cidleset = 'Load Temp'
@@ -29,6 +29,7 @@ MBMode = false
 DynaMode = false
 SCMode = false
 MBLock = false
+mysc = false
 
 IdleIndex = 1
 IdleArray = {'Auto','DT','MEva'}
@@ -51,7 +52,7 @@ function get_sets()
 
     sets.Idle = {
 		main="Mpaca's Staff",sub="Kaja Grip",ammo="Homiliary",
-		head="Volte Beret",body="Arbatel Gown +2",hands="Chironic Gloves",legs="Assiduity Pants +1",feet="Nyame Sollerets",
+		head="Volte Beret",body="Arbatel Gown +3",hands="Chironic Gloves",legs="Assiduity Pants +1",feet="Volte Gaiters",
 		ear1="Etiolation Earring",ear2="Infused Earring",ring1={name="Stikini Ring +1",bag="wardrobe 3"},ring2={name="Stikini Ring +1",bag="wardrobe 1"},
 		neck="Sanctity Necklace",waist="Fucho-no-Obi",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
 	}
@@ -59,9 +60,7 @@ function get_sets()
 	-- Used when IdleMode is "DT"
 	sets.Idle.DT = set_combine(sets.Idle,{
 		ammo="Staunch Tathlum +1",
-		main="Malignance Pole",sub="Kaja Grip",
-		ear2="Ethereal Earring",ring1="Dark Ring",ring2="Defending Ring",
-		neck="Loricate Torque +1"
+		legs="Arbatel Pants +3",
 	})
 
 	-- Used when IdleMode is "MEva"
@@ -82,10 +81,10 @@ function get_sets()
 	-------------
 	
 	sets.Melee = {
-		main="Malignance Pole",sub="Kaja Grip",ammo="Homiliary",
-        head="Nyame Helm",body="Arbatel Gown +2",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets",
-		ear1="Etiolation Earring",ear2="Ethereal Earring",ring1="Defending Ring",ring2="Patricius Ring",
-		neck="Sanctity Necklace",waist="Eschan Stone",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
+		main="Mpaca's Staff",sub="Kaja Grip",ammo="Homiliary",
+        head="Arbatel Bonnet +3",body="Arbatel Gown +3",hands="Nyame Gauntlets",legs="Arbatel Pants +3",feet="Nyame Sollerets",
+		ear1="Dignitary's Earring",ear2="Cessance Earring",ring1={name="Chirich Ring +1",bag="wardrobe 6"},ring2={name="Chirich Ring +1",bag="wardrobe 1"},
+		neck="Sanctity Necklace",waist="Goading Belt",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
 	}
 
 	-------------
@@ -135,33 +134,32 @@ function get_sets()
 		neck="Colossus's Torque",waist="Embla Sash",back="Fi Follet Cape +1"
 	}
 
-	sets.Midcast.Regen = set_combine(sets.Midcast.Enhancing,{head="Arbatel Bonnet +2",body="Telchine Chasuble",back="Bookworm's Cape"})
+	sets.Midcast.Regen = set_combine(sets.Midcast.Enhancing,{head="Arbatel Bonnet +3",body="Telchine Chasuble",back="Bookworm's Cape"})
 	sets.Midcast.Storm = set_combine(sets.Midcast.Enhancing,{feet="Pedagogy Loafers +3"})
 
 	sets.Midcast.MAcc = {
-		main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Academic's Mortarboard +3",body="Academic's Gown +3",hands="Pedagogy Bracers +3",legs="Arbatel Pants +2",feet="Academic's Loafers +3",
+		main="Bunzi's Rod",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
+		head="Academic's Mortarboard +3",body="Academic's Gown +3",hands="Arbatel Bracers +3",legs="Arbatel Pants +3",feet="Academic's Loafers +3",
 		ear1="Malignance Earring",ear2="Regal Earring",ring1={name="Stikini Ring +1",bag="wardrobe 3"},ring2={name="Stikini Ring +1",bag="wardrobe 1"},
-		neck="Argute Stole +1",waist="Luminary Sash",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
+		neck="Argute Stole +2",waist="Luminary Sash",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
 	}
 
 	sets.Midcast.MAB = {
-		main="Bunzi's Rod",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Pedagogy Mortarboard +3",body="Amalric Doublet +1",hands="Amalric Gages +1",legs="Amalric Slops +1",feet="Amalric Nails +1",
-		ear1="Malignance Earring",ear2="Regal Earring",ring1="Freke Ring",ring2="Shiva Ring +1",
-		neck="Argute Stole +1",waist="Sacro Cord",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
+		main="Bunzi's Rod",sub="Ammurapi Shield",ammo="Ghastly Tathlum +1",
+		head="Arbatel Bonnet +3",body="Arbatel Gown +3",hands="Arbatel Bracers +3",legs="Arbatel Pants +3",feet="Arbatel Loafers +3",
+		ear1="Malignance Earring",ear2="Regal Earring",ring1="Freke Ring",ring2="Metamorph Ring +1",
+		neck="Argute Stole +2",waist="Sacro Cord",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
 	}
 
 	sets.Midcast.Helix = set_combine(sets.Midcast.MAB,{
-		sub="Culminus",ammo="Ghastly Tathlum +1",
-		head="Agwu's Cap"
+		sub="Culminus"
 	})
 	sets.Midcast.DarkHelix = set_combine(sets.Midcast.Helix,{head="Pixie Hairpin +1",ring2="Archon Ring"})
 	sets.Midcast.EarthHelix = set_combine(sets.Midcast.Helix,{neck="Quanpur Necklace"})
 	sets.Midcast.LightHelix = set_combine(sets.Midcast.Helix,{main="Daybreak",ring1="Weatherspoon Ring"})
 
-	sets.Midcast.MB = set_combine(sets.Midcast.MAB,{body="Agwu's Robe",hands="Arbatel Bracers +2",legs="Arbatel Pants +2",feet="Arbatel Loafers +3",ring2="Metamorph Ring +1"})
-	sets.Midcast.MBHelix = set_combine(sets.Midcast.Helix,{body="Arbatel Gown +2",hands="Arbatel Bracers +2",legs="Agwu's Slops",ring2="Metamorph Ring +1"})
+	sets.Midcast.MB = set_combine(sets.Midcast.MAB,{head="Pedagogy Mortarboard +3"})
+	sets.Midcast.MBHelix = set_combine(sets.Midcast.Helix,{})
 	sets.Midcast.MBDarkHelix = set_combine(sets.Midcast.MBHelix,{head="Pixie Hairpin +1",ring1="Archon Ring"})
 	sets.Midcast.MBEarthHelix = set_combine(sets.Midcast.MBHelix,{neck="Quanpur Necklace"})
 	sets.Midcast.MBLightHelix = set_combine(sets.Midcast.MBHelix,{main="Daybreak",ring1="Weatherspoon Ring"})
@@ -190,18 +188,34 @@ function get_sets()
 	-- WeaponSkill Sets --
 	----------------------
 
-	sets.WS = {}
-	sets.WS["Realmrazer"] = {}
-	sets.WS["Judgment"] = {}
-	sets.WS["Black Halo"] = {}
-	sets.WS["Hexa Strike"] = {}
-	sets.WS["Flash Nova"] = {}
-	sets.WS["Omniscience"] = {
-		ammo="Pemphredo Tathlum",
-		head="Pedagogy Mortarboard +3",body="Amalric Doublet +1",hands="Amalric Gages +1",legs="Amalric Slops +1",feet="Pedagogy Loafers +3",
-		ear1="Malignance Earring",ear2="Regal Earring",ring1="Freke Ring",ring2="Shiva Ring +1",
-		neck="Argute Stole +1",waist="Refoccilation Stone",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
+	sets.WS = {
+		Ammo="Amar Cluster",
+		head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets",
+		ear1="Moonshade Earring",ear2="Dominance Earring +1",ring1="Apate Ring",ring2="Petrov Ring",
+		neck="Fotia Gorget",waist="Fotia Belt",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
 	}
+
+	sets.WS["Realmrazer"] = set_combine(sets.WS,{})
+	sets.WS["Judgment"] = set_combine(sets.WS,{})
+	sets.WS["Black Halo"] = set_combine(sets.WS,{})
+	sets.WS["Hexa Strike"] = set_combine(sets.WS,{})
+	sets.WS["Omniscience"] = {
+		ammo="Sroda Tathlum",
+		head="Pixie Hairpin +1",body="Nyame Mail",hands="Jhakri Cuffs +2",legs="Nyame Flanchard",feet="Nyame Sollerets",
+		ear1="Malignance Earring",ear2="Regal Earring",ring1="Archon Ring",ring2="Metamorph Ring +1",
+		neck="Argute Stole +2",waist="Refoccilation Stone",back={name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%'}}
+	}
+
+	sets.WS["Cataclysm"] = set_combine(sets.WS["Omniscience"],{
+	})
+
+	sets.WS["Earth Crusher"] = set_combine(sets.WS["Omniscience"],{
+		head="Nyame Helm",neck="Quanpur Necklace",ring1="Freke Ring",
+	})
+
+	sets.WS["Flash Nova"] = set_combine(sets.WS["Omniscience"],{
+		head="Nyame Helm",neck="Sanctity Necklace",ring1="Weatherspoon Ring"
+	})
 
 	---------------
 	-- Aftercast --
@@ -252,7 +266,7 @@ end
 
 function updatedisplay()
 	--element = (EleArray[EleIndex]:split('/'))
-	element = (EleArray[EleIndex])
+	--element = (EleArray[EleIndex])
 
 	local str = 'IdleMode: \\cs(150,150,255)'..IdleArray[IdleIndex]..'\\cr'
 	str = str..'\n   CurrentSet: \\cs(150,150,255)'..tostring(cidleset)..'\\cr'
@@ -261,11 +275,11 @@ function updatedisplay()
 	str = str..'\nDynaMode: \\cs(150,150,255)'..tostring(DynaMode)..'\\cr'
 	str = str..'\nMBLock: \\cs(150,150,255)'..tostring(MBLock)..'\\cr'
 	str = str..'\nSCTier: \\cs(150,150,255)'..tostring(SCTier)..'\\cr'
-	str = str..'\nElement: '..Colors[element]..EleArray[EleIndex]..'\\cr'
+	str = str..'\nElement: '..Colors[(EleArray[EleIndex])]..EleArray[EleIndex]..'\\cr'
 	if SCTier == 1 then
-		str = str..'\nSkillchain: '..Colors[element]..SCArrayT1[SCIndexT1]..'\\cr'
+		str = str..'\nSkillchain: '..Colors[(EleArray[EleIndex])]..SCArrayT1[SCIndexT1]..'\\cr'
 	else
-		str = str..'\nSkillchain: '..Colors[element]..SCArrayT2[SCIndexT2]..'\\cr'
+		str = str..'\nSkillchain: '..Colors[(EleArray[EleIndex])]..SCArrayT2[SCIndexT2]..'\\cr'
 	end
 
     local info = {}
@@ -365,7 +379,7 @@ function midcast(spell,action)
 	if spell.name:contains('Cure') or spell.name:contains('Cura') then
 		equip(sets.Midcast.Cure)
 		if buffactive['Rapture'] then
-			equip({head="Arbatel Bonnet +2"})
+			equip({head="Arbatel Bonnet +3"})
 		end
 	elseif spell.skill == "Enfeebling Magic" then
 		equip(sets.Midcast.MAcc)
@@ -382,7 +396,7 @@ function midcast(spell,action)
 		end
 
 		if buffactive['Perpetuance'] then
-			equip({hands="Arbatel Bracers +2"})
+			equip({hands="Arbatel Bracers +3"})
 		end
     elseif spell.type == 'BlackMagic' then
 		if spell.skill == "Elemental Magic" then
@@ -411,7 +425,7 @@ function midcast(spell,action)
 					equip(sets.Midcast.MAB)
 				end
 				if buffactive['Ebullience'] then
-					equip({head="Arbatel Bonnet +2"})
+					equip({head="Arbatel Bonnet +3"})
 				end
 			end
 		elseif spell.skill == "Dark Magic" then
@@ -435,7 +449,7 @@ function midcast(spell,action)
 		end
 
 		if buffactive['Immanence'] then
-            equip({hands="Arbatel Bracers +2"})
+            equip({hands="Arbatel Bracers +3"})
 		end
 	elseif sets.Midcast[spell.english] then
         equip(sets.Midcast[spell.english])
@@ -443,6 +457,11 @@ function midcast(spell,action)
 		--if buffactive['Parsimony'] then equip(sets.buff['Parsimony']) end
 		--if buffactive['Celerity'] then equip(sets.buff['Celerity']) end
 		--if buffactive['Alacrity'] then equip(sets.buff['Alacrity']) end
+    elseif spell.type == "WeaponSkill" then
+		if (spell.name == "Cataclysm" or spell.name == "Omniscience") and (buffactive['Voidstorm'] or world.weather_element == 'Dark' or world.day_element == 'Dark') then
+			add_to_chat(122,'Darkness found')
+			equipSet = set_combine(equipSet,{waist="Hachirin-no-Obi"})
+		end
     end
 	
     if spell.element == world.weather_element then
@@ -547,22 +566,31 @@ function self_command(command)
 		end
 	elseif commandArgs[1]:lower() == 'idle' then
 		IdleIndex = (IdleIndex % #IdleArray) + 1
+        windower.add_to_chat(8,'----- Idle mode updated -----')
 	elseif commandArgs[1]:lower() == 'pic' then
 		zeni_pic()
 	elseif commandArgs[1]:lower() == 'strat' then
         handle_strategems(commandArgs[2])
     elseif commandArgs[1]:lower() == 'ele' then
 		if commandArgs[2]:lower() == 'down' then
-			EleIndex = (EleIndex % #EleArray) - 1
-			SCIndexT1 = (SCIndexT1 % #SCArrayT1) - 1
-			SCIndexT2 = (SCIndexT2 % #SCArrayT2) - 1
-			NukeIndex = (NukeIndex % #NukeArray) - 1
+			if NukeIndex == 1 then
+				EleIndex = 6
+				SCIndexT1 = 6
+				SCIndexT2 = 6
+				NukeIndex = 6
+			else
+				EleIndex = EleIndex - 1
+				SCIndexT1 = SCIndexT1 - 1
+				SCIndexT2 = SCIndexT2 - 1
+				NukeIndex = NukeIndex - 1
+			end
 		else
 			EleIndex = (EleIndex % #EleArray) + 1
 			SCIndexT1 = (SCIndexT1 % #SCArrayT1) + 1
 			SCIndexT2 = (SCIndexT2 % #SCArrayT2) + 1
 			NukeIndex = (NukeIndex % #NukeArray) + 1
 		end
+        windower.add_to_chat(8,'----- Element changed to ' .. EleArray[EleIndex] .. ' -----')
     elseif commandArgs[1]:lower() == 'nuke' then
 		local tier = commandArgs[2]:lower()
 		local element = NukeArray[NukeIndex]
@@ -611,6 +639,7 @@ function self_command(command)
         elseif commandArgs[2]:lower() == 'gravitation' or autosc:lower() == 'gravitation' then
             send_command('input /p Opening SC: Gravitation  MB: Dark/Stone; wait .1; input /ja "Immanence" <me>; wait 1.5; input /ma "Aero" <t>; wait 4.0; input /ja "Immanence" <me>; wait 1.5; input /p Closing SC: Gravitation; input /ma "Noctohelix" <t>')
         end
+		mysc = true
     elseif commandArgs[1]:lower() == 'cp' then
     elseif commandArgs[1]:lower() == 'dyna' then
         if DynaMode then
@@ -619,7 +648,7 @@ function self_command(command)
             windower.add_to_chat(8,'----- Dynamis Mode Disabled -----')
         else
             DynaMode = true
-			equip({neck="Argute Stole +1"})
+			equip({neck="Argute Stole +2"})
             disable('neck')
             windower.add_to_chat(8,'----- Dynamis Mode Enabled -----')
         end
@@ -706,3 +735,19 @@ function get_current_strategem_count()
 
     return currentCharges
 end
+
+windower.register_event('action', function(act)
+	for _, target in pairs(act.targets) do
+		local ctarget = windower.ffxi.get_mob_by_target("t")
+		if ctarget ~= nil and target.id == ctarget.id then
+			for _, action in pairs(target.actions) do
+				if action.add_effect_message > 287 and action.add_effect_message < 302 then
+					if mysc then
+						windower.send_command('@timers c "Magic Burst Window" 12')
+						mysc = false
+					end
+				end
+			end
+		end
+	end
+end)

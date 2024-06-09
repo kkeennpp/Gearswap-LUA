@@ -88,7 +88,7 @@ function get_sets()
 	sets.midcast.songs.macc = set_combine(sets.midcast.songs,{
 		main="Kali",sub="Genbu's Shield",range="Gjallarhorn",
 		head="Inyanga Tiara +2",body="Inyanga Jubbah +2",hands="Inyanga Dastanas +2",legs="Inyanga shalwar +2",feet="Inyanga Crackows +2",
-		ear1="Enchanter Earring +1",ear2="Gwati Earring",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
+		ear1="Enchanter Earring +1",ear2="Gwati Earring",ring1={name="Stikini Ring +1",bag="wardrobe 3"},ring2="Metamorph Ring +1",
 		waist="Luminary Sash"
 	})
 	

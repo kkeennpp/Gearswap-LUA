@@ -147,10 +147,10 @@ function get_sets()
     -------------
 
     sets.precast.casting = {
-		main="Grioavolr",sub="Vivid Strap",
+		main="Oranyan",sub="Vivid Strap",
 		head="Nahtirah Hat",body="Inyanga Jubbah +2",legs="Lengo Pants",
 		ear1="Loquacious Earring",ear2="Malignance Earring",ring1="Kishar Ring",ring2="Prolix Ring",
-		neck="Voltsurge Torque",waist="Embla Sash",back="Swith Cape"
+		neck="Voltsurge Torque",waist="Embla Sash",back="Fi Follet Cape +1"
     }
 
     sets.precast.summoning = set_combine(sets.precast.casting,{
@@ -178,7 +178,7 @@ function get_sets()
 	sets.midcast.enhancing = {
 		main="Daybreak",sub="Ammurapi Shield",
 		head="Telchine Cap",body="Telchine Chasuble",hands="Telchine Gloves",legs="Telchine Braconi",
-		neck="Colossus's Torque",waist="Embla Sash",back="Swith Cape"
+		neck="Colossus's Torque",waist="Embla Sash",back="Fi Follet Cape +1"
 	}
 
     sets.midcast.cure = {
