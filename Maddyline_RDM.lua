@@ -55,7 +55,7 @@ function get_sets()
 	
     sets.Idle.Resting = set_combine(sets.Idle,{
         main="Chatoyant Staff",
-        head="Inyanga Tiara +2",
+        head="Inyanga Tiara +2",	
 		neck="Eidolon Pendant +1"
 	})
 
@@ -366,7 +366,7 @@ function precast(spell,action)
         elseif spell.name == 'Stoneskin' then
             windower.ffxi.cancel_buff(37)--[[Cancels stoneskin, not delayed incase you get a Quick Cast]]
             equip(sets.Precast)
-        elseif spell.name == 'Sneak' then
+        elseif spell.name == 'Sneak' and spell.target.type == 'SELF' then
             windower.ffxi.cancel_buff(71)--[[Cancels Sneak]]
             equip(sets.Precast)
         elseif spell.name:contains('Cure') or spell.name:contains('Cura') then

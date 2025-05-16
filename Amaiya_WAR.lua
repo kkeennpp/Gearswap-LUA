@@ -278,6 +278,8 @@ function buff_change(buff,gain)
 				enable('neck')
 			end
 		end
+	elseif buff:lower() == 'aftermath' then
+		aftercast()
 	end
     updatedisplay()
 end

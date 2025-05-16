@@ -46,7 +46,7 @@ function get_sets()
         ring1="Moonlight Ring",
 	})
 
-	sets.TP.Hybrid.Dual = set_combine(sets.TP.hybrid,{waist="Reiki Yotai",ear1="Eabani Earring"})
+	sets.TP.Hybrid.Dual = set_combine(sets.TP.Hybrid,{waist="Reiki Yotai",ear1="Eabani Earring"})
 
 	-------------
 	-- Precast --
@@ -347,13 +347,13 @@ function precast(spell,action)
         if spell.name == 'Stoneskin' then
             windower.ffxi.cancel_buff(37)--[[Cancels stoneskin, not delayed incase you get a Quick Cast]]
             equip(sets.precast.stoneskin)
+        elseif spell.name == 'Sneak' and spell.target.type == 'SELF' then
+            windower.ffxi.cancel_buff(71)--[[Cancels Sneak]]
+            equip(sets.precast.enhancing)
         elseif spell.name:match('Cure') or spell.name:match('Cura') then
             equip(sets.precast.cure)
         elseif spell.skill == 'Enhancing Magic' then
             equip(sets.precast.enhancing)
-            if spell.name == 'Sneak' then
-                windower.ffxi.cancel_buff(71)--[[Cancels Sneak]]
-            end
         else
             equip(sets.precast)
         end

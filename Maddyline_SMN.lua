@@ -29,8 +29,6 @@ function get_sets()
 
 	spirit_element={Fire='Fire Spirit',Earth='Earth Spirit',Water='Water Spirit',Wind='Air Spirit',Ice='Ice Spirit',Lightning='Thunder Spirit',Light='Light Spirit',Dark='Dark Spirit'}
 
-	spirit_conflict={Fire='Ice',Earth='Lightning',Water='Fire',Wind='Earth',Ice='Wind',Lightning='Water',Light='Dark',Dark='Light'}
-
     sets.me = {}
     sets.Idle = {}
     sets.avatar = {}
@@ -109,7 +107,6 @@ function get_sets()
         ear1="Lugalbanda Earring",ear2="Gelos Earring",ring1={name="Varar Ring +1",bag="wardrobe 3"},ring2={name="Varar Ring +1",bag="wardrobe 1"},
         neck="Summoner's Collar +1",waist="Regal Belt",back={name="Campestres's Cape",augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Pet: Magic Damage+10',}}
     })
-
     sets.avatar.mab.acc = set_combine(sets.avatar.mab,{
         body="Convoker's Doublet +3",hands="Apogee Mitts +1",feet="Convoker's Pigaches +3",
         ear2="Kyrene's Earring",
@@ -122,7 +119,6 @@ function get_sets()
         ear1="Lugalbanda Earring",ear2="Gelos Earring",ring1={name="Varar Ring +1",bag="wardrobe 3"},ring2={name="Varar Ring +1",bag="wardrobe 1"},
         neck="Summoner's Collar +1",waist="Regal Belt",back={name="Campestres's Cape",augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Pet: Magic Damage+10',}}
     })
-
     sets.avatar.hybrid.acc = set_combine(sets.avatar.hybrid,{
         hands="Convoker's bracers +3",feet="Convoker's Pigaches +3",
         ear2="Kyrene's Earring"
@@ -286,7 +282,13 @@ function precast(spell)
         equip(sets.avatar.siphon)
 		add_to_chat(122,"Elemental Siphon Set")
     elseif spell.type == 'WhiteMagic' or spell.type == 'BlackMagic' then
-        if spell.name:match('Cure') or spell.name:match('Cura') then
+		if spell.name == 'Stoneskin' then
+            windower.ffxi.cancel_buff(37)--[[Cancels stoneskin, not delayed incase you get a Quick Cast]]
+            equip(sets.precast.casting)
+        elseif spell.name == 'Sneak' and spell.target.type == 'SELF' then
+            windower.ffxi.cancel_buff(71)--[[Cancels Sneak]]
+            equip(sets.precast.casting)
+        elseif spell.name:match('Cure') or spell.name:match('Cura') then
             equip(sets.precast.cure)
         else
             equip(sets.precast.casting)
@@ -412,7 +414,8 @@ function idle(pet)
 		if FarmMode then
 			--send_command('input /ma "Ifrit" <me>;')
 			--send_command('input /ma "Diabolos" <me>;')
-			send_command('input /ma "Garuda" <me>;')
+			--send_command('input /ma "Garuda" <me>;')
+			send_command('input /ma "Carbuncle" <me>;')
 		end
 
 		if player.mpp < 50 then

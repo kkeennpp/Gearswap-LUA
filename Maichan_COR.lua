@@ -1,6 +1,6 @@
 function get_sets()
     send_command('input /macro book 1;wait .1;input /macro set 9') -- Change Default Macro Book Here --
-	send_command('wait 5;input /lockstyleset 14')
+	send_command('wait 5;input /lockstyleset 13')
 
 	ranged_ws = S{
 		"Hot Shot","Split Shot","Sniper Shot","Slug Shot","Blast Shot","Heavy Shot","Detonator",
@@ -9,41 +9,46 @@ function get_sets()
 		"Empyreal Arrow","Refulgent Arrow","Apex Arrow","Jishnu's Radiance","Namas Arrow"
 	}
 
+	ranged_mws = S{
+		"Hot Shot","Trueflight","Wildfire","Leaden Salute","Flaming Arrow"
+	}
+
 	sets.Idle = {
-        head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets",
-		ear1="Etiolation Earring",ear2="Infused Earring",ring1="Patricius Ring",ring2="Gelatinous Ring +1",
-		neck="Warder's Charm +1",waist="Flume Belt",back={name="Camulus's mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%'}}
+		head="Darksteel Cap +1",body="Darksteel Harness +1",hands="Darksteel Mittens +1",legs="Darksteel Subligar +1",feet="Darksteel Leggings +1",
+		ear1="Novia Earring",ear2="Bloodbead Earring",ring1="Shadow Ring",ring2="Dark Ring",
+		neck="Orochi Nodowa",waist="Ninurta's Sash",back="Shadow Mantle",
 	}
 
 	sets.Idle.Regen = set_combine(sets.Idle,{
-		ring1="Sheltered Ring",
-		neck="Sanctity Necklace"
 	})
 
 	sets.TP = {
-		head="Malignance Chapeau",body="Adhemar Jacket +1",hands="Adhemar Wristbands +1",legs="Samnuha Tights",feet="Carmine greaves +1",
-		ear1="Cessance Earring",ear2="Suppanomimi",ring1="Epona's Ring",ring2="Ilabrat Ring",
-		neck="Asperity Necklace",waist="Sailfi Belt +1",back={name="Camulus's mantle",augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%'}}
+		head="Walahra Turban",body="Skadi's Cuirie",hands="Dusk Gloves +1",legs="Barbarossa's Zerehs",feet="Dusk Ledelsens +1",
+		ear1="Spinel Earring",ear2="Brutal Earring",ring1="Toreador's Ring",ring2="Mars's Ring",
+		neck="Tiercel Necklace",waist="Ninurta's Sash",back="Cuchulain's Mantle",
 	}
 
 	sets.TP.DW = set_combine(sets.TP,{
+		ear1="Suppanomimi",
 	})
 
-	sets.TP.DT = set_combine(sets.TP,{
-        head="Malignance Chapeau",body="Nyame Mail",hands="Nyame Gauntlets",legs="Malignance Tights",feet="Nyame Sollerets",
+	sets.TP.DT = set_combine(sets.Idle,{
 	})
 
 	sets.TP.HighACC = set_combine(sets.TP,{
+		head="Optical Hat",body="Skadi's Cuirie",hands="Dusk Gloves +1",legs="Skadi's Chausses",feet="Setanta's Ledelsens",
+		neck="Ancient Torque",
 	})
-
-	sets.Idle.MVMT = {legs="Carmine Cuisses +1"}
+	
+	sets.Idle.MVMT = {feet="Skadi's Jambeaux"}
 	
 	-------------
 	-- Preshot --
 	-------------
 
 	sets.Preshot = {
-		head="Ikenga's Hat",body="Ikenga's Vest",hands="Ikenga's Gloves",back="Lutian Cape",waist="Impulse Belt",legs="Ikenga's Trousers",feet="Ikenga's Clogs",neck="Commodore charm +1"
+		ammo="Corsair Bullet",
+		head="Zha'Go's Barbut",body="Ebon Jerkin",hands="Commodore Gants +1",
 	}
 
 	sets.PreshotF1 = set_combine(sets.Preshot,{
@@ -59,19 +64,15 @@ function get_sets()
 	sets.Midshot = {}
 
 	sets.Midshot.LowACC = {
-		head="Malignance Chapeau",body="Chasseur's Frac +2",hands="Chasseur's Gants +2",legs="Malignance Tights",feet="Chasseur's Bottes +2",
-		ear1="Enervating Earring",ear2="Sherida Earring",ring1="Ilabrat Ring",ring2="Regal Ring",
-		neck="Commodore charm +1",waist="Eschan Stone",back={name="Camulus's mantle",augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%'}}
+		ammo="Corsair Bullet",
+		head="Zha'Go's Barbut",body="Skadi's Cuirie",hands="Blood Finger Gauntlets",legs="Skadi's Chausses",feet="Ebon Socks",
+		ear1="Suppanomimi",ear2="Drone Earring",ring1="Blobnag Ring",ring2="Bellona's Ring",
+		neck="Faith Torque",waist="Commodore Belt",back="Amemet Mantle +1",
 	}
 
-	sets.Midshot.Trippleshot = set_combine(sets.Midshot.LowACC,{
-		body="Chasseur's Frac +2",
-	})
-
 	sets.Midshot.HighACC = set_combine(sets.Midshot.LowACC,{
-	})
-
-	sets.Midshot.Hybrid = set_combine(sets.Midshot.LowACC,{
+		head="Optical Hat",body="Skadi's Cuirie",legs="Dusk Trousers",feet="Skadi's Jambeaux",
+		back="Jaeger Mantle",
 	})
 
 	----------------------
@@ -79,37 +80,34 @@ function get_sets()
 	----------------------
 
 	sets.WS = {
-		head="Nyame Helm",body="Nyame Mail",hands="Nyame Gauntlets",legs="Nyame Flanchard",feet="Nyame Sollerets",
-		ear1="Ishvara Earring",ear2="Sherida Earring",ring1="Dingir Ring",ring2="Regal Ring",
-		neck="Commodore charm +1",waist="Fotia Belt",back={name="Camulus's mantle",augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%'}}
+		head="Gnadbhod's Helm",body="Enkidu's Harness",hands="Skadi's bazubands",legs="Enkidu's Subligar",feet="Setanta's Ledelsens",
+		ear1="Triumph Earring",ear2="Brutal Earring",ring1="Strigoi Ring",ring2="Mars's Ring",
+		neck="Fotia Gorget",waist="Potent belt",back="Cerberus Mantle +1",
 	}
 
-	sets.WS["Decimation"] = set_combine(sets.WS,{
-		head="Adhemar Bonnet +1",body="Adhemar Jacket +1",hands="Adhemar Wristbands +1",legs="Samnuha Tights",feet="Herculean Boots",
-		ear1="Odr Earring",ear2="Sherida Earring",ring1="Epona's Ring",ring2="Regal Ring",
-		neck="Fotia Gorget",waist="Fotia Belt",
+	sets.WS["Evisceration"] = set_combine(sets.WS,{
 	})
 
-    sets.WS['Last Stand'] = set_combine(sets.WS,{
-		ammo="Chrono Bullet",
-		body="Chasseur's Frac +2",hands="Chasseur's Gants +2",feet="Lanun Bottes +3",
-		ear2="Moonshade Earring",waist="Kwahu Kachina Belt +1"
+	sets.WS["Detonator"] = set_combine(sets.WS,{
+		ammo="Steel Bullet",
+		head="Skadi's Visor",body="Skadi's Cuirie",hands="Skadi's Bazubands",legs="Enkidu's Subligar",feet="Enkidu's Leggings",
+		ear1="Ruby Earring",ear2="Drone Earring",ring1="Blobnag Ring",ring2="Bellona's Ring",
+		neck="Fotia Gorget",waist="Commodore Belt",back="Amemet Mantle +1",
+	})
+
+	sets.WS["Slug Shot"] = set_combine(sets.WS["Detonator"],{
 	})
 
 	sets.WS['Leaden Salute'] = set_combine(sets.WS,{
-		ammo="Living Bullet",
-		head="Pixie Hairpin +1",body="Lanun Frac +3",feet="Lanun Bottes +3",
-		ear1="Friomisi Earring",ear2="Moonshade Earring",ring1="Dingir Ring",ring2="Archon Ring",
-		neck="Commodore charm +1",waist="Eschan Stone",back={name="Camulus's mantle",augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%'}}
+		ammo="Corsair Bullet",
+		head="Skadi's Visor",body="Skadi's Cuirie",hands="Skadi's bazubands",legs="Denali Kecks",feet="Enkidu's Leggings",
+		ear1="Novio Earring",ear2="Moldavite Earring",ring1="Blobnag Ring",ring2="Psi Ring",
+		neck="Uggalepih Pendant",waist="Salire Belt",back="Commander's Cape",
 	})
 
-	sets.WS['Wildfire'] = set_combine(sets.WS["Leaden Salute"],{head="Nyame Helm",ring2="Regal Ring",waist="Eschan Stone",})
-	sets.WS['Hot Shot'] = set_combine(sets.WS["Leaden Salute"],{head="Nyame Helm",ring2="Regal Ring",waist="Eschan Stone",})
-	sets.WS['Aeolian Edge'] = set_combine(sets.WS["Leaden Salute"],{head="Nyame Helm",ring2="Regal Ring",waist="Eschan Stone",})
+	sets.WS['Hot Shot'] = set_combine(sets.WS["Leaden Salute"],{})
 
 	sets.WS['Savage Blade'] = set_combine(sets.WS,{
-		ear2="Moonshade Earring",ring1="Metamorph Ring +1",
-		waist="Sailfi Belt +1",
 	})
 
 	------------------------
@@ -117,18 +115,17 @@ function get_sets()
 	------------------------
 	
 	sets.JA = {}
-	sets.JA['Snake Eye'] = {legs="Lanun Trews"}
-    sets.JA['Wild Card'] = {feet="Lanun Bottes +3"}
-    sets.JA['Random Deal'] = {body="Lanun Frac +3"}
+	sets.JA['Snake Eye'] = {}
+    sets.JA['Wild Card'] = {}
+    sets.JA['Random Deal'] = {body="Commodore Frac +1"}
 	sets.JA.Rolls = {
-        head="Lanun Tricorne +1",body="Chasseur's Frac +2",hands="Chasseur's Gants +2",legs="Nyame Flanchard",feet="Nyame Sollerets",
-        neck="Regal Necklace",ring1="Luzaf's Ring",ring2="Gelatinous Ring +1",back="Camulus's mantle",
+        head="Commodore Tricorne +1",ring1="Luzaf's Ring"
 	}
 	sets.JA.QuickDraw = {
-		ammo="Living Bullet",
-		head="Malignance Chapeau",body="Lanun Frac +3",hands="Nyame Gauntlets",legs="Malignance Tights",feet="Chasseur's Bottes +2",
-		ear1="Friomisi Earring",ear2="Dedition earring",ring1="Dingir Ring",ring2="K'ayres Ring",
-		neck="Commodore charm +1",waist="Eschan Stone",back={name="Camulus's mantle",augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%'}}
+		ammo="Steel Bullet",
+		head="Enkidu's Cap",body="Skadi's Cuirie",hands="Skadi's bazubands",legs="Skadi's Chausses",feet="Enkidu's Leggings",
+		ear1="Novio Earring",ear2="Moldavite Earring",ring1="Blobnag Ring",ring2="Psi Ring",
+		neck="Almah Torque",waist="Salire Belt",back="Commander's Cape",
 	}
 
 	---------------
@@ -146,18 +143,25 @@ AccIndex = 1
 AccArray = {"LowACC","HighACC","Hybrid"}
 
 cidleset = 'Load Temp'
-CPMode = false
-DynaMode = false
 MeleeMode = false
 DWMode = false
 FlurryLevel = 1
 local res = require('resources')
 
+if player.sub_job == 'NIN' then
+    DWMode = true
+    windower.add_to_chat(8,'----- DualWield Mode Enabled -----')
+elseif player.sub_job == 'DNC' then
+    DWMode = true
+    windower.add_to_chat(8,'----- DualWield Mode Enabled -----')
+end
+
+
 function setup_hud()
     job_property = {}
     job_info = {}
     job_info.box={
-        pos={x=2725,y=1306},
+        pos={x=2725,y=1315},
         text={font='Segoe UI Symbol', size=10, Fonts={'sans-serif'},},
         bg={alpha=200,red=0,green=0,blue=0},
         flags={draggable=false},
@@ -181,8 +185,6 @@ function updatedisplay()
 	str = str..'\n   CurrentSet: \\cs(150,150,255)'..tostring(cidleset)..'\\cr'
 	str = str..'\nFlurryLevel: \\cs(150,150,255)'..tostring(FlurryLevel)..'\\cr'
 	str = str..'\nDWMode: \\cs(150,150,255)'..tostring(DWMode)..'\\cr'
-	str = str..'\nDynaMode: \\cs(150,150,255)'..tostring(DynaMode)..'\\cr'
-	str = str..'\nCPMode: \\cs(150,150,255)'..tostring(CPMode)..'\\cr'
 
     local info = {}
     info.modestates = str
@@ -223,25 +225,21 @@ function pretarget(spell,action)
 end
 
 function buff_change(buff,gain)
-	if buff:lower() == 'terror' or buff:lower() == 'petrification' or buff:lower() == 'sleep' or buff:lower() == 'stun' then
+    if buff:lower() == 'terror' or buff:lower() == 'petrification' or buff:lower() == 'sleep' or buff:lower() == 'stun' then
         if gain then
             equip(sets.TP.DT)
 			cidleset = 'Max DT'
+			if buff:lower() == 'sleep' then
+				if gain and player.hp > 120 and player.status == "Engaged" then -- Equip Berserker's Torque / frenzy When You Are Asleep
+					equip({neck="Berserkers Torque",back="Aries Mantle"})
+					add_to_chat(123,'Berserkers Torque equiped')
+				end
+			end
         elseif not gain then
             aftercast()
         end
     elseif buff:lower() == 'doom' then
 		add_to_chat(123,'You are DOOMED, beg for your life mortal!')
-    elseif buff:lower() == 'reive mark' then
-        if gain then
-			equip({neck="Ygnas's Resolve +1"})
-			disable('neck')
-			add_to_chat(123,'Reive neck locked')
-        elseif not gain then
-			if not DynaMode then
-				enable('neck')
-			end
-		end
 	end
     updatedisplay()
 end
@@ -270,15 +268,6 @@ function precast(spell,action)
 		equip(equipSet)
     elseif spell.name == 'Ranged' then
 		equipSet = sets.Preshot
-
-		if player.equipment.ranged == 'Fomalhaut' then
-			equip({ammo="Chrono Bullet"})
-		elseif player.equipment.ranged == 'Armageddon' then
-			equip({ammo="Chrono Bullet"})
-		elseif player.equipment.ranged == 'Gastraphetes' then
-			equip({ammo="Quelling Bolt"})
-		end
-
 		if buffactive['Flurry'] then
 			add_to_chat(122,"Flurry " .. FlurryLevel .. " found")
 			if FlurryLevel == 1 then
@@ -295,31 +284,27 @@ function precast(spell,action)
         if equipSet[spell.name] then
             equipSet = equipSet[spell.name]
 			add_to_chat(122,spell.name .. ' Set')
-			if spell.name == "Savage Blade" then
-                equipSet = set_combine(equipSet,{ammo="Hauksbok Arrow"})
-			end
 		end
-        if player.tp > 2750 then
-            if spell.name == "Last Stand" then
-                equipSet = set_combine(equipSet,{ear1="Ishvara Earring"})
-            elseif spell.name == "Leaden Salute" then
-				equipSet = set_combine(equipSet,{ear1="Ishvara Earring"})
-            elseif spell.name == "Savage Blade" then
-				equipSet = set_combine(equipSet,{ear1="Ishvara Earring"})
-			end
-        end
 		if spell.name == "Leaden Salute" and (buffactive['Voidstorm'] or world.weather_element == 'Dark' or world.day_element == 'Dark') then
 			add_to_chat(122,'Darkness found')
-			equipSet = set_combine(equipSet,{waist="Anrin Obi"})
+			--equipSet = set_combine(equipSet,{waist="Anrin Obi"})
 			--equipSet = set_combine(equipSet,{waist="Hachirin-no-Obi"})
 		end
         equip(equipSet)
+		
+		if (player.equipment.ranged == 'Murderer') and (not ranged_mws:contains(spell.name)) then
+		--if player.equipment.ranged == 'Murderer' then
+			equip({ear1="Supremacy Earring"})
+		end
 	elseif (spell.type == "CorsairRoll" or spell.english == "Double-Up") then
 		equipSet = sets.JA.Rolls
 		add_to_chat(122,spell.name .. ' Set')
 		equip(equipSet)
 	elseif spell.type == "CorsairShot" then
 		equipSet = sets.JA.QuickDraw
+		if spell.name:contains('Water') then
+			equipSet = set_combine(equipSet,{body="Poroggo fleece +1"})
+		end
 		add_to_chat(122,spell.name .. ' Set')
 		equip(equipSet)
     end
@@ -328,22 +313,10 @@ end
 function midcast(spell,action)
     if spell.name == 'Ranged' then
         equipSet = sets.Midshot
-        if buffactive.Barrage then
-            equipSet = sets.Midshot.Barrage
-			add_to_chat(122,"Barrage Set")
-			cidleset = 'Barrage Set'
-        elseif AccArray[AccIndex] == 'HighACC' then
+        if AccArray[AccIndex] == 'HighACC' then
             equipSet = equipSet[AccArray[AccIndex]]
 			add_to_chat(122,AccArray[AccIndex] .. ' Set')
 			cidleset = AccArray[AccIndex] .. ' Set'
-        elseif AccArray[AccIndex] == 'Crit' then
-            equipSet = equipSet[AccArray[AccIndex]]
-			add_to_chat(122,AccArray[AccIndex] .. ' Set')
-			cidleset = AccArray[AccIndex] .. ' Set'
-		elseif buffactive['Double Shot'] then
-			equipSet = sets.Midshot.Doubleshot
-			cidleset = 'Doubleshot Set'
-			add_to_chat(122,"Doubleshot Set")
         else
             equipSet = equipSet[AccArray[AccIndex]]
 			cidleset = AccArray[AccIndex] .. ' Set'
@@ -398,8 +371,6 @@ function self_command(command)
 	if command == 'acc' then -- Accuracy Level Toggle
 		AccIndex = (AccIndex % #AccArray) + 1
 		add_to_chat(158,'Accuracy Level: ' .. AccArray[AccIndex])
-	elseif command == 'ax' then
-		equip({main="Kaja Axe",sub="Reikiko"})
 	elseif command == 'sw' then
 		equip({main="Kaja Sword",sub="Reikiko"})
 	elseif command == 'melee' then
@@ -417,27 +388,6 @@ function self_command(command)
         else
             DWMode = true
             windower.add_to_chat(8,'----- DualWield Mode Enabled -----')
-        end
-    elseif command == 'cp' then
-        if CPMode then
-            CPMode = false
-            enable('back')
-            windower.add_to_chat(8,'----- CP Mode Disabled -----')
-        else
-            CPMode = true
-			equip({back="Mecistopins Mantle"})
-            disable('back')
-            windower.add_to_chat(8,'----- CP Mode Enabled, Cape Locked -----')
-        end
-    elseif command == 'dyna' then
-        if DynaMode then
-            DynaMode = false
-            enable('neck')
-            windower.add_to_chat(8,'----- Dynamis Mode Disabled -----')
-        else
-            DynaMode = true
-            disable('neck')
-            windower.add_to_chat(8,'----- Dynamis Mode Enabled -----')
         end
     elseif command == 'update' then
 		aftercast()
