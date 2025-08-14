@@ -34,7 +34,7 @@ function get_sets()
 
 	sets.TP = {
 		main="Blau Dolch",sub="Genbu's Shield",ammo="Goblin Cracker",
-		head="Walahra Turban",body="Goliard Saio",hands="Dusk Gloves +1",legs="Byakko's Haidate",feet="Dusk Ledelsens +1",
+		head="Walahra Turban",body="Goliard Saio",hands="Dusk Gloves +1",legs="Byakko's Haidate",feet="Prishe's Boots +1",
 		neck="Ancient Torque",waist="Ninurta's Sash",back="Cuchulain's Mantle",
 		ear1="Spinel Earring",ear2="Brutal Earring",ring1="Toreador's Ring",ring2="Mars's Ring"
 	}

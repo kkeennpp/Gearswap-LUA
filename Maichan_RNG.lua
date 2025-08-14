@@ -23,7 +23,7 @@ function get_sets()
 	})
 
 	sets.TP = {
-		head="Walahra Turban",body="Skadi's Cuirie",hands="Dusk Gloves +1",legs="Byakko's Haidate",feet="Dusk Ledelsens +1",
+		head="Walahra Turban",body="Skadi's Cuirie",hands="Dusk Gloves +1",legs="Byakko's Haidate",feet="Prishe's Boots +1",
 		ear1="Spinel Earring",ear2="Brutal Earring",ring1="Toreador's Ring",ring2="Mars's Ring",
 		neck="Tiercel Necklace",waist="Ninurta's Sash",back="Cuchulain's Mantle",
 	}

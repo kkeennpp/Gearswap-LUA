@@ -37,7 +37,7 @@ function get_sets()
 
 	sets.TP.LowACC = {
         ammo="White Tathlum",
-        head="Walahra Turban",body="Hachiryu Haramaki",hands="Melee Gloves +1",legs="Byakko's Haidate",feet="Usukane Sune-Ate",
+        head="Walahra Turban",body="Hachiryu Haramaki",hands="Melee Gloves +1",legs="Byakko's Haidate",feet="Prishe's Boots +1",
 		ear1="Spinel Earring",ear2="Brutal Earring",ring1="Toreador's Ring",ring2="Mars's Ring",
 		neck="Tiercel Necklace",waist="Black Belt",back="Cerberus Mantle +1",
 	}

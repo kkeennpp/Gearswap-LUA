@@ -58,7 +58,7 @@ function get_sets()
 	
 	sets.Melee = {
 		main="Enhancing Sword",sub="Genbu's Shield",ammo="Astrolabe",
-		head="Walahra Turban",body="Goliard Saio",hands="Dusk Gloves +1",legs="Hydra Brais",feet="Dusk Ledelsens +1",
+		head="Walahra Turban",body="Goliard Saio",hands="Dusk Gloves +1",legs="Hydra Brais",feet="Prishe's Boots +1",
 		neck="Ancient Torque",waist="Ninurta's Sash",back="Cuchulain's Mantle",
 		ear1="Suppanomimi",ear2="Brutal Earring",ring1="Toreador's Ring",ring2="Mars's Ring"
 	}

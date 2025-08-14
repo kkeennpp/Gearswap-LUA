@@ -110,6 +110,10 @@ function get_sets()
 		ear1="Regal Earring",ear2="Dignitary's Earring",ring1={name="Stikini Ring +1",bag="wardrobe 3"},ring2={name="Stikini Ring +1",bag="wardrobe 1"},
 		waist="Luminary Sash"
 	})
+    
+    sets.midcast.songs.th = set_combine(sets.midcast.songs,{
+		legs="Volte Hose",feet="Volte Boots",waist="Chaac Belt",
+	})
 
 	sets.midcast.songs.ballad = set_combine(sets.midcast.songs,{})
 	--sets.midcast.songs.ballad = set_combine(sets.midcast.songs,{legs="Fili Rhingrave +1"})

@@ -49,7 +49,7 @@ function get_sets()
 	}
 
 	sets.TP.Auto = set_combine(sets.TP.LowACC,{
-		head="Walahra Turban",body="Pantin Tobe +1",hands="Pantin Dastanas +1",
+		head="Walahra Turban",body="Pantin Tobe +1",hands="Pantin Dastanas +1",feet="Prishe's Boots +1",
 		neck="Faith Torque",
 	})
 
